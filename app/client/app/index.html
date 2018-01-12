@@ -1,13 +1,212 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
+<!doctype html>
+<html class="no-js" lang="en">
+
+<head>
     <meta charset="utf-8">
-    <title>Flask-Vuejs-Template</title>
-    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet">
-  	<link rel="icon" href="/dist/favicon-16x16.png" type="image/x-icon"/>
-  </head>
-  <body>
-    <div id="vue-app"></div>
-    <script src="/dist/build.js"></script>
-  </body>
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Squiry</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Favicon -->
+    <link rel="shortcut icon" type="image/x-icon" href="dist/img/favicon.ico">
+
+    
+    <!-- CSS
+	============================================ -->
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="dist/css/bootstrap.min.css">
+    <!-- Icon Font CSS -->
+    <link rel="stylesheet" href="dist/css/font-awesome.min.css">
+    <link rel="stylesheet" href="dist/css/pe-icon-7-stroke.css">
+    <!-- Plugins CSS -->
+    <link rel="stylesheet" href="dist/css/plugins.css">
+    <!-- Style CSS -->
+    <link rel="stylesheet" href="dist/style.css">
+   
+</head>
+
+<body id="squiryapp" ng-app="squiryapp">
+
+<!-- Main Wrapper -->
+<div id="main-wrapper">
+        
+        <!-- Header Section Start -->
+        <div class="header-section header-sticky section">
+            <div class="container-fluid">
+                <div class="row">
+                   
+                    <!-- Header Logo -->
+                    <div class="header-logo col-lg-3 col-md-6 col-6">
+                        
+                        <a href="index.html" class="logo">
+                            <img src="dist/img/logo.png" alt="logo">
+                        </a>
+                        
+                    </div>
+                    
+                    <!-- Header Buttons -->
+                    <div class="header-button col-lg-3 col-md-6 col-6">
+                       
+                        <!-- Header Buttons Wrapper -->
+                        <div class="header-button-wrapper">
+                            
+                            <a href="#" class="btn btn-hover-red d-none d-md-inline-flex"><i class="fa fa-map-marker"> Chennai</i> </a>                               
+                            
+                            <!-- <a ng-if="enabled" href="cart.html" class="header-btn-cart dark hover-blue"><i class="pe-7s-cart"></i><span>00</span></a>                             -->
+    
+                        </div>
+                        
+                    </div>
+                    
+                    <!-- Header Menu -->
+                    <div class="main-menu col-lg-6 col-12">
+                        
+                        <nav id="menu">
+                            <ul>
+                                <li class="active"><a href="index.html">Home</a>                                    
+                                </li>
+                                <li><a href="event-schedule.html">Events</a>
+                                    <ul class="sub-menu">
+                                        <li><a href="event-schedule.html">Event Schedule</a></li>
+                                        <li><a href="event-details.html">Event Details</a></li>
+                                        <li><a href="event-submit.html">Event Submit</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="shop.html">Adventure</a>
+                                    <ul class="sub-menu">
+                                        <li><a href="#">Shop Pages</a>
+                                            <ul class="sub-menu">
+                                                <li><a href="shop.html">Shop Full Width</a></li>
+                                                <li><a href="shop-left-sidebar.html">Shop Left Sidebar</a></li>
+                                                <li><a href="shop-right-sidebar.html">Shop Right Sidebar</a></li>
+                                            </ul>
+                                        </li>
+                                        <li><a href="#">Product Details Pages</a>
+                                            <ul class="sub-menu">
+                                                <li><a href="product-details.html">Product Details Full Width</a></li>
+                                                <li><a href="product-details-left-sidebar.html">Product Details Left Sidebar</a></li>
+                                                <li><a href="product-details-right-sidebar.html">Product Details Right Sidebar</a></li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li><a href="about.html">About</a></li>
+                                <li><a href="sign-in.html">Login/Sign Up</a></li>
+
+                                <!-- <li><a href="#">About</a>
+                                    <ul class="sub-menu">
+                                        <li><a href="about.html">About us</a></li>
+                                        <li><a href="cart.html">Cart</a></li>
+                                        <li><a href="checkout.html">Checkout</a></li>
+                                        <li><a href="pricing.html">Pricing</a></li>
+                                        <li><a href="sign-in.html">Sign In</a></li>
+                                        <li><a href="sign-up.html">Sign Up</a></li>
+                                        <li><a href="speakers.html">Speakers</a></li>
+                                        <li><a href="speaker-profile.html">Speaker Profile</a></li>
+                                        <li><a href="sponsor.html">Sponsor</a></li>
+                                        <li><a href="wishlist.html">Wishlist</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="#">Elements</a>
+                                    <ul class="sub-menu">
+                                        <li><a href="element-alerts.html">Element Alerts</a></li>
+                                        <li><a href="element-button.html">Element Button</a></li>
+                                        <li><a href="element-form.html">Element Form</a></li>
+                                        <li><a href="element-list.html">Element List</a></li>
+                                        <li><a href="element-pagination.html">Element Pagination</a></li>
+                                        <li><a href="element-skill.html">Element Skill</a></li>
+                                        <li><a href="element-tab-accordion.html">Element Tab & Accordion</a></li>
+                                        <li><a href="element-tooltip.html">Element Tooltip</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="blog.html">blog</a>
+                                    <ul class="sub-menu">
+                                        <li><a href="#">Blog</a>
+                                            <ul class="sub-menu">
+                                                <li><a href="blog.html">Blog</a></li>
+                                                <li><a href="blog-left-sidebar.html">Blog Left Sidebar</a></li>
+                                                <li><a href="blog-right-sidebar.html">Blog Right Sidebar</a></li>
+                                            </ul>
+                                        </li>
+                                        <li><a href="#">Blog Details</a>
+                                            <ul class="sub-menu">
+                                                <li><a href="blog-details-left-sidebar.html">Blog Details Left Sidebar</a></li>
+                                                <li><a href="blog-details.html">Blog Details Right Sidebar</a></li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li><a href="contact.html">Contact</a></li> -->
+                            </ul>
+                        </nav>
+                        
+                        <div class="mobile-menu"></div>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+        </div><!-- Header Section End -->
+
+    <!-- Fubscribe Section End -->
+    <div ui-view="pages"></div>
+
+    
+    
+    <!-- Footer Bottom Section Start -->
+    <div class="footer-bottom section bg-black">
+        <div class="container">
+            <div class="row">
+                
+                <!-- Copyright Text -->
+                <div class="copyright text-center col-12">
+                    
+                    <p>Copyright &copy; 2018 <a href="#">Squiry</a> All right resurved</p>
+                    
+                </div>
+                
+            </div>
+        </div>
+    </div>
+    <!-- Footer Bottom Section End -->
+    
+</div>
+
+
+<!-- JS
+============================================ -->
+<script src="dist/js/vendor/angular.min.js"></script> 
+<!-- <script src="dist/js/vendor/angular-ui-router.js"></script>         -->
+<script src="//unpkg.com/@uirouter/angularjs/release/angular-ui-router.min.js"></script>
+<script src="dist/app/app.js"></script>
+<script src="dist/app/app.vendors.js"></script>
+<script src="dist/app/app.modules.js"></script>
+<script src="dist/app/events/events.module.js"></script>
+<script src="dist/app/events/events.service.js"></script>
+<script src="dist/app/home/home.module.js"></script>
+<script src="dist/app/home/home.config.js"></script>
+<script src="dist/app/home/home.controller.js"></script>
+<script src="dist/app/home/squirypicks.component.js"></script>
+<script src="dist/app/home/topevents.component.js"></script>
+<script src="dist/app/home/home.component.js"></script>
+
+<!-- jQuery JS -->
+<script src="dist/js/vendor/jquery-1.12.0.min.js"></script>
+<!-- Popper JS -->
+<script src="dist/js/popper.min.js"></script>
+<!-- Bootstrap JS -->
+<script src="dist/js/bootstrap.min.js"></script>
+<!-- Plugins JS -->
+<script src="dist/js/plugins.js"></script>
+<!-- HoverDir JS -->
+<script src="dist/js/jquery.hoverdir.js"></script>
+<!-- Ajax Mail JS -->
+<script src="dist/js/ajax-mail.js"></script>
+<!-- Main JS -->
+<script src="dist/js/main.js"></script>
+ <!-- Modernizer JS -->
+ <script src="dist/js/vendor/modernizr-2.8.3.min.js"></script>
+ 
+</body>
+
 </html>

@@ -1,0 +1,284 @@
+<!-- Event Schedule Section Start -->
+<div class="event-schedule-section event-schedule-section-three section pt-120 pb-90">
+        <div class="container">
+           
+            <!-- Section Title Three -->
+            <div class="row">
+                <div class="section-title-three text-center col pb-70">
+                    <h2>Top Events</h2>                    
+                </div>
+            </div>
+            
+            <div class="row">
+                
+                <!-- Event Three Tab List Start -->
+                <div class="col-12">
+                    <div class="event-three-schedule-tab-list nav">
+                        <a class="active" ng-repeat="category in topEvents.eventCategories" href="#" >{{category.name}}</a>
+                        <!-- <a class="active" data-toggle="tab" href="#event-three-day-one">day-1</a>
+                        <a data-toggle="tab" href="#event-three-day-two">day-2</a>
+                        <a data-toggle="tab" href="#event-three-day-three">day-3</a> -->
+
+                    </div>
+                </div><!-- Event Three Tab List End -->
+                
+                <!-- Event Three Tab Content Start -->
+                <div class="event-three-schedule-tab-content tab-content col-12">
+                    
+                    <!-- Event Three Tab Pane Start -->
+                    <div class="event-three-schedule-tab-pane tab-pane fade show active" id="event-three-day-one">
+                       
+                        <div class="row text-center">
+
+                            <!-- Event Three Single Schedule -->
+                            <div ng-repeat="event in topEvents.events" class="col-lg-3 col-md-6 col-12 mb-30">
+                                <div class="event-three-single-schedule">
+                                    
+                                    <!-- Head -->
+                                    <div class="head">
+                                        <h4><a href="event-details.html">{{event.name}}</a></h4>
+                                        <h5>{{ event.time}}</h5>
+                                    </div>
+                                    
+                                    <!-- Image -->
+                                    <div class="image">
+                                        <img src="{{event.url}}" alt="singer">
+                                        <a href="pricing.html" class="btn btn-light-border btn-hover-light">Buy Ticket</a>
+                                    </div>
+                                    
+                                    <!-- Footer -->
+                                    <div class="footer">
+                                        <h4><a href="speaker-profile.html">{{event.location }}</a></h4>
+                                        <!-- <h5>Red Band</h5> -->
+                                    </div>
+
+                                </div>
+                            </div>
+
+                        </div>
+                        
+                    </div><!-- Event One Tab Pane End -->
+                    
+                    <!-- Event One Tab Pane Start -->
+                    <div class="event-three-schedule-tab-pane tab-pane fade" id="event-three-day-two">
+                       
+                        <div class="row text-center">
+
+                            <!-- Event Three Single Schedule -->
+                            <div class="col-lg-3 col-md-6 col-12 mb-30">
+                                <div class="event-three-single-schedule">
+                                    
+                                    <!-- Head -->
+                                    <div class="head">
+                                        <h4><a href="event-details.html">Concert For Life</a></h4>
+                                        <h5>Norrth Hall,  @11.30am</h5>
+                                    </div>
+                                    
+                                    <!-- Image -->
+                                    <div class="image">
+                                        <img src="img/singer/6.jpg" alt="singer">
+                                        <a href="pricing.html" class="btn btn-light-border btn-hover-light">Buy Ticket</a>
+                                    </div>
+                                    
+                                    <!-- Footer -->
+                                    <div class="footer">
+                                        <h4><a href="speaker-profile.html">Michel James</a></h4>
+                                        <h5>Red Band</h5>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <!-- Event Three Single Schedule -->
+                            <div class="col-lg-3 col-md-6 col-12 mb-30">
+                                <div class="event-three-single-schedule">
+                                    
+                                    <!-- Head -->
+                                    <div class="head">
+                                        <h4><a href="event-details.html">Concert For Life</a></h4>
+                                        <h5>Norrth Hall,  @12.30am</h5>
+                                    </div>
+                                    
+                                    <!-- Image -->
+                                    <div class="image">
+                                        <img src="img/singer/7.jpg" alt="singer">
+                                        <a href="pricing.html" class="btn btn-light-border btn-hover-light">Buy Ticket</a>
+                                    </div>
+                                    
+                                    <!-- Footer -->
+                                    <div class="footer">
+                                        <h4><a href="speaker-profile.html">Shokh Sukha</a></h4>
+                                        <h5>Red Band</h5>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <!-- Event Three Single Schedule -->
+                            <div class="col-lg-3 col-md-6 col-12 mb-30">
+                                <div class="event-three-single-schedule">
+                                    
+                                    <!-- Head -->
+                                    <div class="head">
+                                        <h4><a href="event-details.html">Concert For Life</a></h4>
+                                        <h5>Norrth Hall,  @01.30pm</h5>
+                                    </div>
+                                    
+                                    <!-- Image -->
+                                    <div class="image">
+                                        <img src="img/singer/8.jpg" alt="singer">
+                                        <a href="pricing.html" class="btn btn-light-border btn-hover-light">Buy Ticket</a>
+                                    </div>
+                                    
+                                    <!-- Footer -->
+                                    <div class="footer">
+                                        <h4><a href="speaker-profile.html">LuLu Fala</a></h4>
+                                        <h5>Red Band</h5>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <!-- Event Three Single Schedule -->
+                            <div class="col-lg-3 col-md-6 col-12 mb-30">
+                                <div class="event-three-single-schedule">
+                                    
+                                    <!-- Head -->
+                                    <div class="head">
+                                        <h4><a href="event-details.html">Concert For Life</a></h4>
+                                        <h5>Norrth Hall,  @02.30pm</h5>
+                                    </div>
+                                    
+                                    <!-- Image -->
+                                    <div class="image">
+                                        <img src="img/singer/9.jpg" alt="singer">
+                                        <a href="pricing.html" class="btn btn-light-border btn-hover-light">Buy Ticket</a>
+                                    </div>
+                                    
+                                    <!-- Footer -->
+                                    <div class="footer">
+                                        <h4><a href="speaker-profile.html">Maksud Reza</a></h4>
+                                        <h5>Red Band</h5>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                        </div>
+                    
+                    </div><!-- Event One Tab Pane End -->
+                    
+                    <!-- Event One Tab Pane Start -->
+                    <div class="event-three-schedule-tab-pane tab-pane fade" id="event-three-day-three">
+                       
+                        <div class="row text-center">
+
+                            <!-- Event Three Single Schedule -->
+                            <div class="col-lg-3 col-md-6 col-12 mb-30">
+                                <div class="event-three-single-schedule">
+                                    
+                                    <!-- Head -->
+                                    <div class="head">
+                                        <h4><a href="event-details.html">Concert For Life</a></h4>
+                                        <h5>Norrth Hall,  @11.30am</h5>
+                                    </div>
+                                    
+                                    <!-- Image -->
+                                    <div class="image">
+                                        <img src="img/singer/6.jpg" alt="singer">
+                                        <a href="pricing.html" class="btn btn-light-border btn-hover-light">Buy Ticket</a>
+                                    </div>
+                                    
+                                    <!-- Footer -->
+                                    <div class="footer">
+                                        <h4><a href="speaker-profile.html">Michel James</a></h4>
+                                        <h5>Red Band</h5>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <!-- Event Three Single Schedule -->
+                            <div class="col-lg-3 col-md-6 col-12 mb-30">
+                                <div class="event-three-single-schedule">
+                                    
+                                    <!-- Head -->
+                                    <div class="head">
+                                        <h4><a href="event-details.html">Concert For Life</a></h4>
+                                        <h5>Norrth Hall,  @12.30am</h5>
+                                    </div>
+                                    
+                                    <!-- Image -->
+                                    <div class="image">
+                                        <img src="img/singer/7.jpg" alt="singer">
+                                        <a href="pricing.html" class="btn btn-light-border btn-hover-light">Buy Ticket</a>
+                                    </div>
+                                    
+                                    <!-- Footer -->
+                                    <div class="footer">
+                                        <h4><a href="speaker-profile.html">Shokh Sukha</a></h4>
+                                        <h5>Red Band</h5>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <!-- Event Three Single Schedule -->
+                            <div class="col-lg-3 col-md-6 col-12 mb-30">
+                                <div class="event-three-single-schedule">
+                                    
+                                    <!-- Head -->
+                                    <div class="head">
+                                        <h4><a href="event-details.html">Concert For Life</a></h4>
+                                        <h5>Norrth Hall,  @01.30pm</h5>
+                                    </div>
+                                    
+                                    <!-- Image -->
+                                    <div class="image">
+                                        <img src="img/singer/8.jpg" alt="singer">
+                                        <a href="pricing.html" class="btn btn-light-border btn-hover-light">Buy Ticket</a>
+                                    </div>
+                                    
+                                    <!-- Footer -->
+                                    <div class="footer">
+                                        <h4><a href="speaker-profile.html">LuLu Fala</a></h4>
+                                        <h5>Red Band</h5>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <!-- Event Three Single Schedule -->
+                            <div class="col-lg-3 col-md-6 col-12 mb-30">
+                                <div class="event-three-single-schedule">
+                                    
+                                    <!-- Head -->
+                                    <div class="head">
+                                        <h4><a href="event-details.html">Concert For Life</a></h4>
+                                        <h5>Norrth Hall,  @02.30pm</h5>
+                                    </div>
+                                    
+                                    <!-- Image -->
+                                    <div class="image">
+                                        <img src="img/singer/9.jpg" alt="singer">
+                                        <a href="pricing.html" class="btn btn-light-border btn-hover-light">Buy Ticket</a>
+                                    </div>
+                                    
+                                    <!-- Footer -->
+                                    <div class="footer">
+                                        <h4><a href="speaker-profile.html">Maksud Reza</a></h4>
+                                        <h5>Red Band</h5>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                        </div>
+                    
+                    </div><!-- Event Three Tab Pane End -->
+                    
+                </div><!-- Event Three Tab Content End -->
+                
+            </div>
+        </div>
+    </div><!-- Event Schedule Section End -->

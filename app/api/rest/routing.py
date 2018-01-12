@@ -21,7 +21,6 @@ class ResourceOne(BaseResource):
         json_payload = request.json
         return {'name': 'Resource Post'}
 
-
 @rest_resource
 class SecureResourceOne(SecureResource):
     """ /api/resource/two """

@@ -1,0 +1,51 @@
+<div class="news-section section pt-120 pb-90">
+        <div class="container">
+    
+            <!-- Section Title Style Four -->
+            <div class="row">
+                <div class="section-title-four text-center col pb-70">
+                    <h2>Top Events</h2>
+                </div>
+            </div>
+            <!-- Single Sidebar -->
+            <div class="single-sidebar mb-50">
+                <div class="sidebar-tags">
+    
+                    <a ng-repeat="category in topEvents.eventCategories" href="#" >{{category.name}}</a>
+                    <!-- <a href="#">Conferance</a>
+                    <a href="#">Event</a>
+                    <a href="#">EventPro</a>
+                    <a href="#">Musicevent</a>
+                    <a href="#">Themeforest</a>
+                    <a href="#">Music</a>
+     -->
+                </div>
+    
+            </div>
+            <div class="row">
+    
+                <!-- Blog Item Start -->
+                <div ng-repeat="event in topEvents.events" class="blog-item col-lg-4 col-md-6 col-12 mb-30">
+                    <a href="pricing.html" class="btn btn-light-border btn-hover-light">Buy Ticket</a>
+                    <!-- Image -->
+                    <div class="image">
+                            <img src="{{event.url}}" alt="singer">
+                            <a href="pricing.html" class="btn btn-light-border btn-hover-light">Buy Ticket</a>
+                        </div>
+                    <!-- Content -->
+                    <div class="content fix">    
+                        <h3 class="title"><a href="blog-details.html">{{event.name}}</a></h3>
+                        <span class="date">{{event.time}}</span>
+                        <span>{{event.location}}</span>
+                    </div>
+    
+                </div>
+                <!-- Blog Item Start -->
+    
+                
+    
+            </div>
+    
+        </div>
+    </div>
+    

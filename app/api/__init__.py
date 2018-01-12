@@ -20,4 +20,5 @@ def add_header(response):
 
 from app.api import views
 from app.api.rest import routing
+from app.api.rest.events import event_route
 
