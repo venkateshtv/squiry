@@ -1,0 +1,21 @@
+<div class="col-lg-6 col-12 mb-50">
+        eventsManageComponent
+     <h3 class="mt-0 mb-35">Add an event</h3>
+     
+     <div class="form form-bg bg-light-gray">
+         <form>
+             <div class="input mb-20"><input type="text" ng-model="eventsManageComponent.newEvent.apiKey" placeholder="Enter your API KEY"></div>
+             <div class="input mb-20"><input type="text" ng-model="eventsManageComponent.newEvent.name" placeholder="Name"></div>             
+             <div class="input mb-20"><textarea ng-model="eventsManageComponent.newEvent.description" placeholder="Description"></textarea></div>
+             <div class="input mb-20"><textarea ng-model="eventsManageComponent.newEvent.address" placeholder="Address"></textarea></div>
+             <select ng-model="ng-model="eventsManageComponent.newEvent.categoryid"" ng-options="category.name for category in eventsManageComponent.eventCategories">
+             </select>
+             <div class="input mb-20"><input type="text" ng-model="eventsManageComponent.newEvent.url" placeholder="Image URL"></div>
+             <div class="input mb-20"><input type="text" ng-model="eventsManageComponent.newEvent.location" placeholder="Location"></div>
+             <div class="input mb-20"><input type="text" ng-model="eventsManageComponent.newEvent.latlong" placeholder="Lat Long"></div>
+             <div class="input mb-20"><input type="text" ng-model="eventsManageComponent.newEvent.eventtime" placeholder="Event time"></div>                          
+             <div class="input"><input type="submit" class="btn btn-blue btn-hover-red btn-square" ng-click="eventsManageComponent.AddNewEvent()" value="Submit"></div>
+         </form>
+     </div>
+     
+ </div>

@@ -1,5 +1,64 @@
 from app.api.rest.events.event import Event
+import os
+from urllib import parse
+import psycopg2
+
+parse.uses_netloc.append("postgres")
+url = parse.urlparse(os.environ["DATABASE_URL"])
+
 events = []
+
+def get_db_connection():
+    return psycopg2.connect(
+        database=url.path[1:],
+        user=url.username,
+        password=url.password,
+        host=url.hostname,
+        port=url.port)
+
+def insertupdate(query):
+    connection = None
+    cursor = None
+    result = None
+    try:
+        connection = get_db_connection()
+        cursor = connection.cursor()
+        cursor.execute(query)
+        connection.commit()        
+        result = cursor.fetchone()
+    except:
+        result = None
+        if connection != None:
+            connection.rollback()
+    finally:
+        if cursor != None:
+            cursor.close()
+        if connection != None:
+            connection.close()
+    return result
+
+def read(query,all= True):
+    connection = None
+    cursor = None
+    result = None
+    try:
+        connection = get_db_connection()
+        cursor = connection.cursor()
+        cursor.execute(query)
+        if all is True:
+            result = list(cursor.fetchall())
+        else:
+            result = list(cursor.fetchone())
+    except:
+        result = None
+        if connection != None:
+            connection.rollback()
+    finally:
+        if cursor != None:
+            cursor.close()
+        if connection != None:
+            connection.close()
+    return result
 
 def load_data():
     #Squiry Picks
