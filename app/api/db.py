@@ -2,6 +2,7 @@ from app.api.rest.events.event import Event
 import os
 from urllib import parse
 import psycopg2
+import psycopg2.extras
 
 parse.uses_netloc.append("postgres")
 url = parse.urlparse(os.environ["DATABASE_URL"])
@@ -22,7 +23,7 @@ def insertupdate(query):
     result = None
     try:
         connection = get_db_connection()
-        cursor = connection.cursor()
+        cursor = connection.cursor(cursor_factory = psycopg2.extras.RealDictCursor)
         cursor.execute(query)
         connection.commit()        
         result = cursor.fetchone()
@@ -43,16 +44,17 @@ def read(query,all= True):
     result = None
     try:
         connection = get_db_connection()
-        cursor = connection.cursor()
+        cursor = connection.cursor(cursor_factory = psycopg2.extras.RealDictCursor)
         cursor.execute(query)
         if all is True:
-            result = list(cursor.fetchall())
+            result = cursor.fetchall()
         else:
-            result = list(cursor.fetchone())
-    except:
+            result = cursor.fetchone()
+    except Exception as e:
         result = None
         if connection != None:
             connection.rollback()
+        raise e
     finally:
         if cursor != None:
             cursor.close()

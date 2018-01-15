@@ -1,21 +1,172 @@
-<div class="col-lg-6 col-12 mb-50">
-        eventsManageComponent
-     <h3 class="mt-0 mb-35">Add an event</h3>
-     
-     <div class="form form-bg bg-light-gray">
-         <form>
-             <div class="input mb-20"><input type="text" ng-model="eventsManageComponent.newEvent.apiKey" placeholder="Enter your API KEY"></div>
-             <div class="input mb-20"><input type="text" ng-model="eventsManageComponent.newEvent.name" placeholder="Name"></div>             
-             <div class="input mb-20"><textarea ng-model="eventsManageComponent.newEvent.description" placeholder="Description"></textarea></div>
-             <div class="input mb-20"><textarea ng-model="eventsManageComponent.newEvent.address" placeholder="Address"></textarea></div>
-             <select ng-model="ng-model="eventsManageComponent.newEvent.categoryid"" ng-options="category.name for category in eventsManageComponent.eventCategories">
+<div class="col-lg-12 col-12 mb-50">
+    <h3 class="mt-0 mb-35">Add an event</h3>
+
+    <div class="form form-bg bg-light-gray">
+        <form>
+            <div class="input mb-20"><input type="text" ng-model="eventsManageComponent.newEvent.apiKey" required placeholder="Enter your API KEY"></div>
+            <div class="input mb-20"><input type="text" ng-model="eventsManageComponent.newEvent.name" required placeholder="Name"></div>
+            <div class="input mb-20"><textarea ng-model="eventsManageComponent.newEvent.description" required placeholder="Description"></textarea></div>
+            <div class="input mb-20"><textarea ng-model="eventsManageComponent.newEvent.address" required placeholder="Address"></textarea></div>
+            <select ng-model="eventsManageComponent.newEvent.categoryid" required ng-options="category.name for category in eventsManageComponent.eventCategories">
              </select>
-             <div class="input mb-20"><input type="text" ng-model="eventsManageComponent.newEvent.url" placeholder="Image URL"></div>
-             <div class="input mb-20"><input type="text" ng-model="eventsManageComponent.newEvent.location" placeholder="Location"></div>
-             <div class="input mb-20"><input type="text" ng-model="eventsManageComponent.newEvent.latlong" placeholder="Lat Long"></div>
-             <div class="input mb-20"><input type="text" ng-model="eventsManageComponent.newEvent.eventtime" placeholder="Event time"></div>                          
-             <div class="input"><input type="submit" class="btn btn-blue btn-hover-red btn-square" ng-click="eventsManageComponent.AddNewEvent()" value="Submit"></div>
-         </form>
-     </div>
-     
- </div>
+            <div class="input mb-20"><input type="text" ng-model="eventsManageComponent.newEvent.url" required placeholder="Image URL"></div>
+            <div class="input mb-20"><input type="text" ng-model="eventsManageComponent.newEvent.location" required placeholder="Location"></div>
+            <div class="input mb-20"><input type="text" ng-model="eventsManageComponent.newEvent.latlong" placeholder="Lat Long"></div>
+            <div class="input mb-20"><input type="text" ng-model="eventsManageComponent.newEvent.eventstart" required placeholder="Event Start time"></div>
+            <div class="input mb-20"><input type="text" ng-model="eventsManageComponent.newEvent.eventend" required placeholder="Event End time"></div>
+            <div class="col-12">
+
+                <div class="table-responsive mb-30">
+                    <button class="cart-pro-remove"><i class="fa fa-plus"></i></button>
+                    <table class="table cart-table text-center">
+
+                        <!-- Table Head -->
+                        <thead>
+                            <tr>
+                                <th class="number">#</th>
+                                <th class="image">image</th>
+                                <th class="name">product name</th>
+                                <th class="qty">quantity</th>
+                                <th class="price">price</th>
+                                <th class="total">totle</th>
+                                <th class="remove">remove</th>
+                            </tr>
+                        </thead>
+
+                        <!-- Table Body -->
+                        <tbody>
+                            <tr>
+                                <td><span class="cart-number">1</span></td>
+                                <td><a href="#" class="cart-pro-image"><img src="img/product/1.jpg" alt="" /></a></td>
+                                <td><a href="#" class="cart-pro-title">Holiday Candle</a></td>
+                                <td>
+                                    <div class="product-quantity">
+                                        <input type="text" value="0" name="qtybox">
+                                    </div>
+                                </td>
+                                <td>
+                                    <p class="cart-pro-price">$104.99</p>
+                                </td>
+                                <td>
+                                    <p class="cart-price-total">$104.99</p>
+                                </td>
+                                <td><button class="cart-pro-remove"><i class="fa fa-trash-o"></i></button></td>
+                            </tr>
+                            <tr>
+                                <td><span class="cart-number">2</span></td>
+                                <td><a href="#" class="cart-pro-image"><img src="img/product/2.jpg" alt="" /></a></td>
+                                <td><a href="#" class="cart-pro-title">Christmas Tree</a></td>
+                                <td>
+                                    <div class="product-quantity">
+                                        <input type="text" value="0" name="qtybox">
+                                    </div>
+                                </td>
+                                <td>
+                                    <p class="cart-pro-price">$85.99</p>
+                                </td>
+                                <td>
+                                    <p class="cart-price-total">$85.99</p>
+                                </td>
+                                <td><button class="cart-pro-remove"><i class="fa fa-trash-o"></i></button></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="input"><input type="submit" class="btn btn-blue btn-hover-red btn-square" ng-click="eventsManageComponent.AddNewEvent()"
+                    value="Submit"></div>
+        </form>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <h3 class="mt-0 mb-35">All Events</h3>
+            <div class="table-responsive mb-30">
+                <table class="table cart-table text-center">
+
+                    <!-- Table Head -->
+                    <thead>
+                        <tr>
+                            <th class="number">#</th>
+                            <th class="image">image</th>
+                            <th class="name">product name</th>
+                            <th class="qty">quantity</th>
+                            <th class="price">price</th>
+                            <th class="total">totle</th>
+                            <th class="remove">remove</th>
+                        </tr>
+                    </thead>
+
+                    <!-- Table Body -->
+                    <tbody>
+                        <tr>
+                            <td><span class="cart-number">1</span></td>
+                            <td><a href="#" class="cart-pro-image"><img src="img/product/1.jpg" alt="" /></a></td>
+                            <td><a href="#" class="cart-pro-title">Holiday Candle</a></td>
+                            <td>
+                                <div class="product-quantity">
+                                    <input type="text" value="0" name="qtybox">
+                                </div>
+                            </td>
+                            <td>
+                                <p class="cart-pro-price">$104.99</p>
+                            </td>
+                            <td>
+                                <p class="cart-price-total">$104.99</p>
+                            </td>
+                            <td><button class="cart-pro-remove"><i class="fa fa-trash-o"></i></button></td>
+                        </tr>
+                        <tr>
+                            <td><span class="cart-number">2</span></td>
+                            <td><a href="#" class="cart-pro-image"><img src="img/product/2.jpg" alt="" /></a></td>
+                            <td><a href="#" class="cart-pro-title">Christmas Tree</a></td>
+                            <td>
+                                <div class="product-quantity">
+                                    <input type="text" value="0" name="qtybox">
+                                </div>
+                            </td>
+                            <td>
+                                <p class="cart-pro-price">$85.99</p>
+                            </td>
+                            <td>
+                                <p class="cart-price-total">$85.99</p>
+                            </td>
+                            <td><button class="cart-pro-remove"><i class="fa fa-trash-o"></i></button></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="row">
+
+                <!-- Cart Action -->
+                <div class="cart-action col-lg-4 col-md-6 col-12 mb-30">
+                    <a href="#" class="button">Continiue Shopping</a>
+                    <button class="button">update cart</button>
+                </div>
+
+                <!-- Cart Cuppon -->
+                <div class="cart-cuppon col-lg-4 col-md-6 col-12 mb-30">
+                    <h4 class="title">Discount Code</h4>
+                    <p>Enter your coupon code if you have</p>
+                    <form action="#" class="cuppon-form">
+                        <input type="text" placeholder="Cuppon Code">
+                        <button class="button">apply coupon</button>
+                    </form>
+                </div>
+
+                <!-- Cart Checkout Progress -->
+                <div class="cart-checkout-process col-lg-4 col-md-6 col-12 mb-30">
+                    <h4 class="title">Process Checkout</h4>
+                    <p><span>Subtotal</span><span>$190.98</span></p>
+                    <h5><span>Grand total</span><span>$190.98</span></h5>
+                    <button class="button">process to checkout</button>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</div>

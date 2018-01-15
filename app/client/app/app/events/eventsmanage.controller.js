@@ -16,8 +16,9 @@
         function getEventCategories(){
             console.log("Attempting to load events");
             events.getEventCategories().then(function(result){
-                if(results.data){
+                if(result.data){
                     vm.eventCategories = result.data;
+                    vm.newEvent.categoryid = vm.eventCategories[0];
                 }
                 
             }).catch(function(error){
@@ -31,7 +32,8 @@
         init();
         function AddNewEvent(){
             vm.message = "";
-            events.addEvent(newEvent).then(function(result){
+            vm.newEvent.categoryid = vm.newEvent.id;
+            events.addEvent(vm.newEvent).then(function(result){
                 vm.message = "Successfully created event with id"+result.data;
             }).catch(function(error){
                 vm.message = "Something went wrong while creating event";

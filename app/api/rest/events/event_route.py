@@ -25,7 +25,14 @@ class EventCategories(BaseResource):
     endpoints = ['/eventcategories']
 
     def get(self,category = None):                
-        categories = read("select * from category")  
-        print("Categories")
-        print(categories)
+        categories = read("select * from eventcategory")          
         return categories
+
+@rest_resource
+class EventDetails(BaseResource):
+    """ /api/event """
+    endpoints = ['/event/<string:eventname>/<int:eventid>']
+
+    def get(self,eventname,eventid):                
+        event = read("select * from event where name='{}' and id='{}'".format(eventname,eventid))          
+        return event

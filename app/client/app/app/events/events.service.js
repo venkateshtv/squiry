@@ -4,6 +4,10 @@
         vm.getSquiryPicks = getSquiryPicks;
         vm.getTopEvents = getTopEvents;
         vm.getEventCategories = getEventCategories;
+        vm.getEventDetails = getEventDetails;
+        vm.getAllEvents = getAllEvents;
+        vm.addEvent = addEvent;
+        vm.updateEvent = updateEvent;
         
         function getSquiryPicks(){
             return $http.get('api/squirypicksevents');
@@ -14,8 +18,8 @@
         function getEventCategories(){
             return $http.get('api/eventcategories');
         }
-        function getEventDetails(eventid){
-            return $http.get('api/getevent/'+eventid)
+        function getEventDetails(eventname,eventid){
+            return $http.get('api/event/'+eventname+'/'+eventid)
         }
         function getAllEvents(){
             return $http.get('api/allevents');
