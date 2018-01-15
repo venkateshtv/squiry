@@ -3,6 +3,22 @@
         var vm = this;
         vm.event = {};
         vm.message = "";
+        vm.calculatePrice = calculatePrice;
+        vm.calculateTotalPrice = calculateTotalPrice;
+        vm.totalPrice = 0;
+
+        function calculatePrice(price){
+            price.totalPrice = (price.selectedQuantity ? price.selectedQuantity : 0) * price.price;
+            return price.totalPrice;
+        }
+
+        function calculateTotalPrice(){
+            vm.totalPrice = 0;
+            for(var price in vm.event.prices){
+                vm.totalPrice += vm.event.prices[price].totalPrice;
+            }
+            return vm.totalPrice;
+        }
                 
         function getEventDetail(eventname,eventid){
             console.log("Attempting to load event");

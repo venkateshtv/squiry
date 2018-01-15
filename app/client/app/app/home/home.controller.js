@@ -23,6 +23,7 @@
         function getEventCategories(){
             events.getEventCategories().then(function (result){
                 vm.eventCategories = result.data;
+                vm.searchSelectedCategory = vm.eventCategories[0];
                 getTopEvents();
             }).catch(function(error){
                 console.log("Error getting categories");

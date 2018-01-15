@@ -1,6 +1,7 @@
 (function(){
     angular.module('squiryapp',[
-        'squiryapp.home'
+        'squiryapp.home',
+        'squiryapp.events'
     ]);    
 })();
 

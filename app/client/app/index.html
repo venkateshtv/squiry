@@ -38,7 +38,7 @@
                     <!-- Header Logo -->
                     <div class="header-logo col-lg-3 col-md-6 col-6">
                         
-                        <a href="index.html" class="logo">
+                        <a href="/#!/home" class="logo">
                             <img src="dist/img/logo.png" alt="logo">
                         </a>
                         
@@ -63,17 +63,17 @@
                         
                         <nav id="menu">
                             <ul>
-                                <li class="active"><a href="index.html">Home</a>                                    
+                                <li class="active"><a href="/#!/home">Home</a>                                    
                                 </li>
-                                <li><a href="event-schedule.html">Events</a>
-                                    <ul class="sub-menu">
+                                <li><a href="#">Events</a>
+                                    <!-- <ul class="sub-menu">
                                         <li><a href="event-schedule.html">Event Schedule</a></li>
                                         <li><a href="event-details.html">Event Details</a></li>
                                         <li><a href="event-submit.html">Event Submit</a></li>
-                                    </ul>
+                                    </ul> -->
                                 </li>
-                                <li><a href="shop.html">Adventure</a>
-                                    <ul class="sub-menu">
+                                <li><a href="#">Adventure</a>
+                                    <!-- <ul class="sub-menu">
                                         <li><a href="#">Shop Pages</a>
                                             <ul class="sub-menu">
                                                 <li><a href="shop.html">Shop Full Width</a></li>
@@ -88,10 +88,10 @@
                                                 <li><a href="product-details-right-sidebar.html">Product Details Right Sidebar</a></li>
                                             </ul>
                                         </li>
-                                    </ul>
+                                    </ul> -->
                                 </li>
-                                <li><a href="about.html">About</a></li>
-                                <li><a href="sign-in.html">Login/Sign Up</a></li>
+                                <li><a href="#">About</a></li>
+                                <li><a href="#">Login/Sign Up</a></li>
 
                                 <!-- <li><a href="#">About</a>
                                     <ul class="sub-menu">
@@ -149,6 +149,10 @@
         </div><!-- Header Section End -->
 
     <!-- Fubscribe Section End -->
+    <div id="loaderDiv" loader style="display:none">
+        <img src="dist/img/spinner.gif" class="ajax-loader"/>
+    </div>
+    
     <div ui-view="pages"></div>
 
     
@@ -179,8 +183,11 @@
 <!-- <script src="dist/js/vendor/angular-ui-router.js"></script>         -->
 <script src="//unpkg.com/@uirouter/angularjs/release/angular-ui-router.min.js"></script>
 <script src="dist/app/app.js"></script>
+<script src="dist/app/app.config.js"></script>
 <script src="dist/app/app.vendors.js"></script>
 <script src="dist/app/app.modules.js"></script>
+<script src="dist/app/tools/tools.module.js"></script>
+<script src="dist/app/tools/tools.imageupload.directive.js"></script>
 <script src="dist/app/events/events.module.js"></script>
 <script src="dist/app/events/events.config.js"></script>
 <script src="dist/app/events/events.service.js"></script>

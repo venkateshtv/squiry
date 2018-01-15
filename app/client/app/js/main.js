@@ -537,5 +537,5 @@ $(document).ready(function () {
             });
 
         })(jQuery);
-    }, 1300);
+    }, 6000);
 });

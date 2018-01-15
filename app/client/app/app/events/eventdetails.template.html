@@ -7,21 +7,21 @@
             <div class="single-event-wrapper col-sm-16 col-12 mb-50">
 
                 <!-- Title -->
-                <h2 class="title">Business Conference - World Wealth Creation 2018.</h2>
+                <h2 class="title">{{eventDetailsComponent.event.name}}</h2>
 
                 <!-- Meta -->
                 <div class="meta fix">
 
-                    <a href="#"><i class="pe-7s-map-marker"></i><span>Sugondha USA South Hall-1200</span></a>
-                    <a href="#"><i class="pe-7s-date"></i><span>2017, February 13</span></a>
-                    <a href="#"><i class="pe-7s-ticket"></i><span>Business</span></a>
+                    <a href="#"><i class="pe-7s-map-marker"></i><span>{{eventDetailsComponent.event.location}}</span></a>
+                    <a href="#"><i class="pe-7s-date"></i><span>{{eventDetailsComponent.event.eventstart}}</span></a>
+                    <a href="#"><i class="pe-7s-ticket"></i><span>{{eventDetailsComponent.event.categoryname}}</span></a>
 
                 </div>
 
                 <!-- Image -->
                 <div class="image">
                     <div class="image-slider"></div>
-                    <img src="dist/img/event/event-detail-1.jpg" alt="Event Detail">
+                    <img src="{{eventDetailsComponent.event.url}}" alt="Event Detail">
 
                 </div>
 
@@ -34,61 +34,41 @@
                             <!-- Table Head -->
                             <thead>
                                 <tr>
-                                    <th class="number">#</th>
-                                    <th class="image">image</th>
-                                    <th class="name">product name</th>
-                                    <th class="qty">quantity</th>
+                                    <th class="name">Ticket</th>
+                                    <th class="quantity">Quantity</th>
                                     <th class="price">price</th>
-                                    <th class="total">totle</th>
-                                    <th class="remove">remove</th>
+                                    <th class="total">total</th>
                                 </tr>
                             </thead>
 
                             <!-- Table Body -->
                             <tbody>
-                                <tr>
-                                    <td><span class="cart-number">1</span></td>
-                                    <td><a href="#" class="cart-pro-image"><img src="img/product/1.jpg" alt="" /></a></td>
-                                    <td><a href="#" class="cart-pro-title">Holiday Candle</a></td>
+                                <tr ng-repeat="price in eventDetailsComponent.event.prices">
+                                    <td><a href="#" class="cart-pro-title">{{price.name}}</a></td>
                                     <td>
                                         <div class="product-quantity">
-                                            <input type="text" value="0" name="qtybox">
+                                            <input type="text" value="0" name="qtybox" ng-model="price.selectedQuantity">
                                         </div>
                                     </td>
                                     <td>
-                                        <p class="cart-pro-price">$104.99</p>
+                                        <p class="cart-pro-price">{{price.price}}</p>
                                     </td>
                                     <td>
-                                        <p class="cart-price-total">$104.99</p>
+                                        <p class="cart-price-total">{{eventDetailsComponent.calculatePrice(price)}}</p>
                                     </td>
-                                    <td><button class="cart-pro-remove"><i class="fa fa-trash-o"></i></button></td>
-                                </tr>
-                                <tr>
-                                    <td><span class="cart-number">2</span></td>
-                                    <td><a href="#" class="cart-pro-image"><img src="img/product/2.jpg" alt="" /></a></td>
-                                    <td><a href="#" class="cart-pro-title">Christmas Tree</a></td>
-                                    <td>
-                                        <div class="product-quantity">
-                                            <input type="text" value="0" name="qtybox">
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <p class="cart-pro-price">$85.99</p>
-                                    </td>
-                                    <td>
-                                        <p class="cart-price-total">$85.99</p>
-                                    </td>
-                                    <td><button class="cart-pro-remove"><i class="fa fa-trash-o"></i></button></td>
                                 </tr>
                             </tbody>
                         </table>
-                        
+
                     </div>
                     <!-- Cart Action -->
                     <div class="row">
-                        <div class="cart-action col-lg-4 col-md-6 col-12 mb-30">                            
-                            <button class="button" data-toggle="modal" data-target="#user-details">Buy tickets</button>
+                        <!-- Cart Action -->
+                        <div class="cart-action col-lg-4 col-md-6 col-12 mb-30">
+                            <h4 style="font-family: Montserrat, sans-serif;text-transform:uppercase;color:#282828;font-size: 14px;font-weight: 700;line-height: 14px;"><span>Grand total:   </span><span>Rs. {{eventDetailsComponent.calculateTotalPrice()}}</span></h4>
+                            <button class="btn btn-dark btn-hover-red" data-toggle="modal" data-target="#user-details">Buy tickets</button>
                         </div>
+
                     </div>
 
                 </div>
@@ -98,17 +78,9 @@
 
                     <h4 class="sub-title">Event Description:</h4>
 
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-                        dolore magna aliqua. enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi aliquip
-                        commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-                        fugiat nulla pariatur.</p>
-
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt labore et dolore
-                        magna aliqua. enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi aliquip commodo
-                        consequat. Duis aute irure dolor in reprehenderit in voluptate.</p>
-
-                    <p>Enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi aliquip commodo consequat. Duis
-                        aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+                    <p>
+                        {{eventDetailsComponent.event.description}}
+                    </p>
 
                 </div>
 
@@ -119,9 +91,8 @@
 
                             <!-- Contact Map Content Start -->
                             <div class="contact-map-content col-lg-5 col-12">
-                                <h2>Find us on Map. We are Here.</h2>
-                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
-                                    been the industry's standard dummy text</p>
+                                <h2>Where is it happening?</h2>
+                                <p>{{eventDetailsComponent.event.address}}</p>
                             </div>
 
                         </div>
@@ -137,20 +108,19 @@
                 <!-- Event Creator -->
                 <!-- <div class="event-creator fix"> -->
 
-                    <!-- Image -->
-                    <!-- <div class="image float-left"><img src="dist/img/speaker/6.jpg" alt="Event Creator"></div> -->
+                <!-- Image -->
+                <!-- <div class="image float-left"><img src="dist/img/speaker/6.jpg" alt="Event Creator"></div> -->
 
-                    <!-- Content -->
-                    <!-- <div class="content fix"> -->
-                        <!-- <h4><a href="#">Tollar James</a></h4> -->
-                        <!-- <h6>Event Creator</h6> -->
-                        <!-- <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore -->
-                            <!-- et dolore magna aliqua.</p> -->
-                    <!-- </div> -->
-
+                <!-- Content -->
+                <!-- <div class="content fix"> -->
+                <!-- <h4><a href="#">Tollar James</a></h4> -->
+                <!-- <h6>Event Creator</h6> -->
+                <!-- <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore -->
+                <!-- et dolore magna aliqua.</p> -->
                 <!-- </div> -->
 
-
+                <!-- </div> -->
+                
             </div>
 
         </div>
@@ -162,32 +132,32 @@
 
 <!-- Modal -->
 <div id="user-details" class="modal fade" role="dialog">
-  <div class="modal-dialog">
+    <div class="modal-dialog">
 
-    <!-- Modal content-->
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title">Add your details</h4>
-      </div>
-      <div class="modal-body">
-        <div class="col-12 mb-50">
-            <div class="form">
-                 <form>
-                     <div class="row">
-                         <div class="input col-md-6 col-12 mb-20"><input type="text" required placeholder="First Name *"></div>
-                         <div class="input col-md-6 col-12 mb-20"><input type="text" required placeholder="Last Name *"></div>
-                         <div class="input col-md-12 col-12 mb-20"><input type="email" required placeholder="Email *"></div>                                                  
-                         <div class="input col-12">
-                            <input type="submit" class="btn btn-dark btn-hover-red btn-square" value="Proceed to Payment">
-                          </div>
-                     </div>                     
-                 </form>
-             </div>
-         </div>        
-      </div>
-      
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Add your details</h4>
+            </div>
+            <div class="modal-body">
+                <div class="col-12 mb-50">
+                    <div class="form">
+                        <form>
+                            <div class="row">
+                                <div class="input col-md-6 col-12 mb-20"><input type="text" required placeholder="First Name *"></div>
+                                <div class="input col-md-6 col-12 mb-20"><input type="text" required placeholder="Last Name *"></div>
+                                <div class="input col-md-12 col-12 mb-20"><input type="email" required placeholder="Email *"></div>
+                                <div class="input col-12">
+                                    <input type="submit" class="btn btn-dark btn-hover-red" value="Proceed to Payment">
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
     </div>
-
-  </div>
 </div>

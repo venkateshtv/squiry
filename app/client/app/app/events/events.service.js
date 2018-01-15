@@ -8,6 +8,7 @@
         vm.getAllEvents = getAllEvents;
         vm.addEvent = addEvent;
         vm.updateEvent = updateEvent;
+        vm.uploadEventImage = uploadEventImage;
         
         function getSquiryPicks(){
             return $http.get('api/squirypicksevents');
@@ -29,6 +30,16 @@
         }
         function updateEvent(event){
             return $http.post('api/updateevent',event);
+        }
+        function uploadEventImage(file){
+            var formdata= new FormData();
+            formdata.append('file',file);
+            return $http({
+                url: 'api/uploadeventimage',
+                method: "POST",
+                data: formdata,
+                headers: {'Content-Type': undefined}
+            });
         }
         return vm;
     }

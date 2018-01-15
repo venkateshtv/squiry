@@ -24,10 +24,18 @@ def insertupdate(query):
     try:
         connection = get_db_connection()
         cursor = connection.cursor(cursor_factory = psycopg2.extras.RealDictCursor)
-        cursor.execute(query)
-        connection.commit()        
+        print("Query")
+        print(query)
+        ex = cursor.execute(query)
+        print("EX")
+        print(ex)
         result = cursor.fetchone()
-    except:
+        print("Result")
+        print(result)
+        connection.commit()               
+    except Exception as ex:
+        print("Exception")
+        print(ex)
         result = None
         if connection != None:
             connection.rollback()

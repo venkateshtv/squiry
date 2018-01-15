@@ -1,3 +1,3 @@
 (function(){
-    angular.module('squiryapp',[]);
+    angular.module('squiryapp',['ngResource']);
 })();

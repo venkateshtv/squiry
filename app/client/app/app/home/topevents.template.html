@@ -8,8 +8,8 @@
                 </div>
             </div>
             <!-- Single Sidebar -->
-            <div class="single-sidebar mb-50">
-                <div class="sidebar-tags">
+            <div class="single-sidebar" style="margin-left:100px;margin-right:100px">
+                <div class="sidebar-tags" >
     
                     <a ng-repeat="category in topEvents.eventCategories" href="#" >{{category.name}}</a>
                     <!-- <a href="#">Conferance</a>
@@ -26,16 +26,16 @@
     
                 <!-- Blog Item Start -->
                 <div ng-repeat="event in topEvents.events" class="blog-item col-lg-4 col-md-6 col-12 mb-30">
-                    <a href="pricing.html" class="btn btn-light-border btn-hover-light">Buy Ticket</a>
+                    <a href="#!/events/{{event.name}}/{{event.id}}" class="btn btn-light-border btn-hover-light">Buy Ticket</a>
                     <!-- Image -->
                     <div class="image">
                             <img src="{{event.url}}" alt="singer">
-                            <a href="pricing.html" class="btn btn-light-border btn-hover-light">Buy Ticket</a>
+                            <a href="#!/events/{{event.name}}/{{event.id}}" class="btn btn-light-border btn-hover-light">Buy Ticket</a>
                         </div>
                     <!-- Content -->
                     <div class="content fix">    
-                        <h3 class="title"><a href="blog-details.html">{{event.name}}</a></h3>
-                        <span class="date">{{event.time}}</span>
+                        <h3 class="title"><a href="#!/events/{{event.name}}/{{event.id}}">{{event.name}}</a></h3>
+                        <span class="date">{{event.eventstart}}</span>
                         <span>{{event.location}}</span>
                     </div>
     
