@@ -9,15 +9,15 @@
             <div class="input mb-20"><textarea ng-model="eventsManageComponent.newEvent.address" required placeholder="Address"></textarea></div>
             <select ng-model="eventsManageComponent.newEvent.categoryid" required ng-options="category.name for category in eventsManageComponent.eventCategories">
              </select>
-             <div class="input mb-20">
+             <div>
                 <label for="file">Choose a Image file</label>
                 <input sq-image-uploader uploadfile="eventsManageComponent.uploadEventImage" type="file" id="file" accept="image/*" />
             </div>
             <div class="input mb-20"><input type="text" ng-model="eventsManageComponent.newEvent.url" required placeholder="Image URL"></div>
             <div class="input mb-20"><input type="text" ng-model="eventsManageComponent.newEvent.location" required placeholder="Location"></div>
             <div class="input mb-20"><input type="text" ng-model="eventsManageComponent.newEvent.latlong" placeholder="Lat Long"></div>
-            <div class="input mb-20"><input type="text" ng-model="eventsManageComponent.newEvent.eventstart" required placeholder="Event Start time"></div>
-            <div class="input mb-20"><input type="text" ng-model="eventsManageComponent.newEvent.eventend" required placeholder="Event End time"></div>
+            <div class="input mb-20"><input type="text" ng-model="eventsManageComponent.newEvent.eventstart" required placeholder="Event Start time"><span>Eg: 2018-12-01 17:00:00</span></div>
+            <div class="input mb-20"><input type="text" ng-model="eventsManageComponent.newEvent.eventend" required placeholder="Event End time"><span>Eg: 2018-12-01 21:00:00</span></div>
             <div class="col-12">
 
                 <div class="table-responsive mb-30">
@@ -71,7 +71,7 @@
                                         <tbody>
                                             <tr ng-repeat="discount in eventsManageComponent.newEvent.discounts">                                
                                                 <td><input type="text" class="cart-pro-title" ng-model="discount.discountname"></td>
-                                                <td><select  ng-model="discount.discounttype">
+                                                <td><select ng-model="discount.discounttype">
                                                     <option value="percentage">Percentage</option>
                                                     <option value="couponpercentage">Coupon with percentage</option>
                                                     <option value="couponflat">Coupon with flat value</option>
