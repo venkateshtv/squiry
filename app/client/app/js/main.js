@@ -63,17 +63,17 @@ $(document).ready(function () {
             -----------------------------------*/
             console.log("SLIDER", $('.hero-slider'));
             /*-- Hero Slider One --*/
-            $('.hero-slider').slick({
-                arrows: false,
-                autoplay: true,
-                autoplaySpeed: 5000,
-                dots: true,
-                pauseOnFocus: false,
-                pauseOnHover: false,
-                fade: true,
-                infinite: true,
-                slidesToShow: 1,
-            });
+            // $('.hero-slider').slick({
+            //     arrows: false,
+            //     autoplay: true,
+            //     autoplaySpeed: 5000,
+            //     dots: true,
+            //     pauseOnFocus: false,
+            //     pauseOnHover: false,
+            //     fade: true,
+            //     infinite: true,
+            //     slidesToShow: 1,
+            // });
 
             /*-- Hero Slider Two --*/
             $('.hero-slider-2').slick({
@@ -537,5 +537,5 @@ $(document).ready(function () {
             });
 
         })(jQuery);
-    }, 6000);
+    }, 2000);
 });

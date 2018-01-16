@@ -1,0 +1,30 @@
+<!-- Hero Section Start -->
+<div class="hero-section section ">
+    
+    <!-- Hero Slider One -->
+    <div class="hero-slider hero-slider-one" slick-slider valuetowait="bannerComponent.banners">
+        <!-- Hero Slide Item -->
+        <div class="item" ng-repeat="banner in bannerComponent.banners" ng-click="bannerComponent.goToEvent(banner)" style="cursor:pointer;height:500px;width:100%;background-image: url({{banner.url}});background-size:100% 100%;background-repeat: no-repeat;">
+            <div class="container">
+                <div class="row">
+                    
+                    <!-- Hero One Content Start -->
+                    <!-- <div class="hero-one-content text-center col-12">
+                        
+                        <h2>7th Biggest</h2>
+                        <h1>Business Conference 2018.</h1>
+                        <h3>10 to 13 February, 2018</h3>
+                        <a href="pricing.html" class="btn btn-light-outline btn-hover-red-outline">Buy Ticket</a>
+                        
+                    </div> -->
+                    <!-- Hero One Content End -->
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Scroll To About Section -->
+    <a href="#" data-scroll class="scroll-down"><i class="fa fa-angle-down"></i></a>
+    
+</div><!-- Hero Section End -->

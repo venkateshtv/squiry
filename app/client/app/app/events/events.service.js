@@ -1,7 +1,7 @@
 (function(){        
     function events($http){
         var vm=this; 
-        vm.getSquiryPicks = getSquiryPicks;
+        vm.getBanners = getBanners;
         vm.getTopEvents = getTopEvents;
         vm.getEventCategories = getEventCategories;
         vm.getEventDetails = getEventDetails;
@@ -10,8 +10,8 @@
         vm.updateEvent = updateEvent;
         vm.uploadEventImage = uploadEventImage;
         
-        function getSquiryPicks(){
-            return $http.get('api/squirypicksevents');
+        function getBanners(){
+            return $http.get('api/banners');
         }
         function getTopEvents(category){
             return $http.get('api/topevents');

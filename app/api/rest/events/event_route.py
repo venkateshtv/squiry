@@ -5,11 +5,11 @@ from app.api.db import get_data,insertupdate,read
 
 @rest_resource
 class SquiryPicksEvents(BaseResource):
-    """ /api/squirypicksevents """
-    endpoints = ['/squirypicksevents']
+    """ /api/banners """
+    endpoints = ['/banners']
 
     def get(self):        
-        return read("select e.id,e.name,e.location,e.url,e.eventstart,c.name as categoryname from squirypicks s inner join event e on s.eventid=e.id inner join eventcategory c on e.categoryid = c.id;")
+        return read("select e.id,e.name,e.location,e.url,e.eventstart,c.name as categoryname from banners s inner join event e on s.eventid=e.id inner join eventcategory c on e.categoryid = c.id;")
 
 @rest_resource
 class TopEvents(BaseResource):
@@ -25,7 +25,7 @@ class EventCategories(BaseResource):
     endpoints = ['/eventcategories']
 
     def get(self,category = None):                
-        categories = read("select * from eventcategory;")          
+        categories = read("select * from eventcategory order by name asc;")          
         return categories
 
 @rest_resource

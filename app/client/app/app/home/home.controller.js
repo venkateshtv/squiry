@@ -1,16 +1,16 @@
 (function () {
     function homeController($scope, $state, events) {
         var vm = this;
-        vm.squiryPicks = [];
+        vm.banners = [];
         vm.topEvents = [];
         vm.getTopEvents = getTopEvents;
         vm.eventCategories = [];
 
-        function getSquiryPicks() {
-            events.getSquiryPicks().then(function (result) {
-                vm.squiryPicks = result.data;
+        function getBanners() {
+            events.getBanners().then(function (result) {
+                vm.banners = result.data;
             }).catch(function (error) {
-                console.log("ERROR getting squiry picks");
+                console.log("ERROR getting Banners");
             });
         }
         function getTopEvents(category){
@@ -30,7 +30,7 @@
             });
         }
         function init() {
-            getSquiryPicks();            
+            getBanners();            
             getEventCategories();
         }
         init();
