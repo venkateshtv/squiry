@@ -22,8 +22,8 @@ class AddEvent(BaseResource):
             raise Exception("API Key required")
         if(event.get('apiKey') != apiKey):
             raise Exception("API Key doesn't match")        
-        query = "INSERT INTO event (name,description,address,location,latlong,url,eventstart,eventend,categoryid) VALUES ('{}','{}','{}','{}','{}','{}','{}','{}',{}) RETURNING id;"
-        query = query.format(event.get('name'),event.get('description',''),event.get('address',''),event.get('location',''),event.get('latlong',''),event.get('url',''),event.get('eventstart',''),event.get('eventend',''),event.get('categoryid',''))
+        query = 'INSERT INTO event (name,description,address,location,latlong,url,eventstart,eventend,categoryid) VALUES ("{}","{}","{}","{}","{}","{}","{}","{}",{}) RETURNING id;'
+        query = query.format(event.get('name'),event.get('description',""),event.get('address',""),event.get('location',""),event.get('latlong',"''"),event.get('url',""),event.get('eventstart',""),event.get('eventend',""),event.get('categoryid',0))
         eventresult = insertupdate(query)
         print("EVENTS RESULT")
         print(eventresult)
