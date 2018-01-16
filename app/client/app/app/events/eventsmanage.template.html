@@ -71,14 +71,18 @@
                                         <tbody>
                                             <tr ng-repeat="discount in eventsManageComponent.newEvent.discounts">                                
                                                 <td><input type="text" class="cart-pro-title" ng-model="discount.discountname"></td>
-                                                <td><input type="text" class="cart-pro-title" ng-model="discount.discounttype"></td>
+                                                <td><select  ng-model="discount.discounttype">
+                                                    <option value="percentage">Percentage</option>
+                                                    <option value="couponpercentage">Coupon with percentage</option>
+                                                    <option value="couponflat">Coupon with flat value</option>
+                                                  </select></td>                                                
                                                 <td>
                                                     <div class="product-quantity">
                                                         <input type="text" value="0" name="qtybox" ng-model="discount.discountvalue">
                                                     </div>
                                                 </td>
                                                 <td>
-                                                    <p class="cart-pro-price"><input type="number" ng-model="discount.couponcode"></p>
+                                                    <p class="cart-pro-price"><input type="text" ng-model="discount.couponcode"></p>
                                                 </td>                                                                
                                                 <td>
                                                     <p class="cart-pro-price"><input type="number" ng-model="discount.discountupto"></p>
