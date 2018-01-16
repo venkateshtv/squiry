@@ -65,7 +65,13 @@
                     <div class="row">
                         <!-- Cart Action -->
                         <div class="cart-action col-lg-4 col-md-6 col-12 mb-30">
-                            <h4 style="font-family: Montserrat, sans-serif;text-transform:uppercase;color:#282828;font-size: 14px;font-weight: 700;line-height: 14px;"><span>Grand total:   </span><span>Rs. {{eventDetailsComponent.calculateTotalPrice()}}</span></h4>
+                            <h4 style="font-family: Montserrat, sans-serif;text-transform:uppercase;color:#282828;font-size: 14px;font-weight: 700;line-height: 14px;"><span>Total Price:   </span><span>Rs. {{eventDetailsComponent.calculateTotalPrice()}}</span></h4>
+                            <h4 style="font-family: Montserrat, sans-serif;text-transform:uppercase;color:#282828;font-size: 14px;font-weight: 700;line-height: 14px;"><span>After Discount:   </span><span>Rs. {{eventDetailsComponent.finalPriceBeforeTax}}</span></h4>
+                            <h4 style="font-family: Montserrat, sans-serif;text-transform:uppercase;color:#282828;font-size: 14px;font-weight: 700;line-height: 14px;"><span>Tax:   </span><span>Rs. {{eventDetailsComponent.tax}}</span></h4>
+                            <h4 style="font-family: Montserrat, sans-serif;text-transform:uppercase;color:#282828;font-size: 14px;font-weight: 700;line-height: 14px;"><span>Amount to Pay:   </span><span>Rs. {{eventDetailsComponent.finalPriceAfterTax}}</span></h4>
+
+
+                            
                             <button class="btn btn-dark btn-hover-red" data-toggle="modal" data-target="#user-details">Buy tickets</button>
                         </div>
 

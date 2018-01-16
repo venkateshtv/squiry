@@ -40,12 +40,17 @@ class EventDetails(BaseResource):
     endpoints = ['/event/<string:eventname>/<int:eventid>']
 
     def get(self,eventname,eventid):                
-        event = read("""select *,c.name as categoryname from event e inner join eventcategory c on e.categoryid = c.id where e.name='{}' and e.id='{}';""".format(eventname,eventid), False)          
+        event = read("""select e.*,c.name as categoryname from event e inner join eventcategory c on e.categoryid = c.id where e.name='{}' and e.id={};""".format(eventname,eventid), False)          
         if(event):
-            prices = get_prices(event['id'])  
+            print("Event  ",event)
+            prices = get_prices(event['id']) 
+            print("Prices")
+            print(prices) 
             if prices != None:
                 event['prices'] = prices
             discounts = get_discounts(event['id'])
+            print("Discount")
+            print(discounts) 
             if discounts != None:
                 event['discounts'] = discounts
         return event
