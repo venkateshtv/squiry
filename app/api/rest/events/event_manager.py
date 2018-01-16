@@ -4,11 +4,17 @@ from app.api.rest.events.event import Event
 from app.api.db import get_data,insertupdate,read
 import os
 
-def addPrices(prices,eventid):
+def addPrices(eventid, prices):
     for price in prices:
-        pricequery = "INSERT INTO price(name,price,quantity,eventid) values('{}',{},{},{}) RETURNING id;"
+        pricequery = """INSERT INTO price(name,price,quantity,eventid) values('{}',{},{},{}) RETURNING id;"""
         insertupdate(pricequery.format(price.get('name'),price.get('price'),price.get('quantity'),eventid))
+    return None
 
+def addDiscounts(eventid, discounts):
+    for discount in discounts:
+        discountquery = """INSERT INTO discounts (eventid,discountname,discounttype,discountvalue,couponcode,discountupto) values ({},'{}','{}',{},'{}',{})  RETURNING id;"""
+        insertupdate(discountquery.format(eventid,discount.get('discountname'),discount.get('discounttype'),discount.get('discountvalue'),discount.get('couponcode'),discount.get('discountupto')))
+    return None
 
 apiKey = "p69369"
 @rest_resource
@@ -22,13 +28,14 @@ class AddEvent(BaseResource):
             raise Exception("API Key required")
         if(event.get('apiKey') != apiKey):
             raise Exception("API Key doesn't match")        
-        query = 'INSERT INTO event (name,description,address,location,latlong,url,eventstart,eventend,categoryid) VALUES ("{}","{}","{}","{}","{}","{}","{}","{}",{}) RETURNING id;'
-        query = query.format(event.get('name'),event.get('description',""),event.get('address',""),event.get('location',""),event.get('latlong',"''"),event.get('url',""),event.get('eventstart',""),event.get('eventend',""),event.get('categoryid',0))
+        query = """INSERT INTO event (name,description,address,location,latlong,url,eventstart,eventend,categoryid) VALUES ('{}','{}','{}','{}','{}','{}','{}','{}',{}) RETURNING id;"""
+        query = query.format(event.get('name').replace("'","''"),event.get('description',"").replace("'","''"),event.get('address',"").replace("'","''"),event.get('location',"").replace("'","''"),event.get('latlong',""),event.get('url',"").replace("'","''"),event.get('eventstart',""),event.get('eventend',""),event.get('categoryid',0))
         eventresult = insertupdate(query)
         print("EVENTS RESULT")
         print(eventresult)
         prices = event.get('prices')
-        addPrices(prices,eventresult.get('id'))
+        addPrices(eventresult.get('id'),prices)
+        addDiscounts(eventresult.get('id'),event.get('discounts'))
         return eventresult       
 
 @rest_resource

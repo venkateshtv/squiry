@@ -3,11 +3,13 @@
         var vm = this;
         vm.allevents = [];        
         vm.eventCategories = [];
-        vm.newEvent = {prices:[]};
+        vm.newEvent = {prices:[],discounts:[]};
         vm.uploadEventImage = uploadEventImage;
         vm.addNewEvent = addNewEvent;                
         vm.addPrice = addPrice;
         vm.removePrice = removePrice;
+        vm.addDiscount = addDiscount;
+        vm.removeDiscount = removeDiscount;
         
         vm.message = "";
         function getAllEvents() {
@@ -58,6 +60,18 @@
                 var price = vm.newEvent.prices[i];
                 if(price == removePrice){
                     vm.newEvent.prices.splice(i,1);
+                    return false;
+                }
+            }
+        }
+        function addDiscount(){
+            vm.newEvent.discounts.push({discountname:"",discountvalue:0,discountupto:0,discounttype:"",couponcode:""});
+        }
+        function removeDiscount(removeDiscount){
+            for(var i=0;i<vm.newEvent.discounts.length;i++){
+                var price = vm.newEvent.discounts[i];
+                if(price == removeDiscount){
+                    vm.newEvent.discounts.splice(i,1);
                     return false;
                 }
             }

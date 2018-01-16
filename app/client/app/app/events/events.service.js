@@ -9,7 +9,19 @@
         vm.addEvent = addEvent;
         vm.updateEvent = updateEvent;
         vm.uploadEventImage = uploadEventImage;
-        
+        vm.calculateDiscountPrice = calculateDiscountPrice;
+
+        function calculateDiscountPrice(discounttype,discountvalue,totalprice){
+            var price = 0;
+            if(discounttype === "percentage"){
+                price = totalprice - ((totalprice * discountvalue)/100);
+            } else if(discounttype === "flat"){
+                price = totalprice - discountvalue;
+            } else {
+                price = totalprice;
+            }
+            return price;
+        }
         function getBanners(){
             return $http.get('api/banners');
         }

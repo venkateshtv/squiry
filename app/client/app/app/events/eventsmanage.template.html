@@ -51,6 +51,44 @@
                     </table>
                 </div>
             </div>
+            <div class="col-12">
+                
+                                <div class="table-responsive mb-30">
+                                    <button type="button" class="cart-pro-remove" ng-click="eventsManageComponent.addDiscount()"><i class="fa fa-plus"></i>Add Discount</button>
+                                    <table class="table cart-table text-center">
+                
+                                        <!-- Table Head -->
+                                        <thead>
+                                            <tr>
+                                                <th class="name">Discount Name</th>                                
+                                                <th class="name">Discount Type</th>                                
+                                                <th class="qty">Discount Value</th>
+                                                <th class="price">Coupon code</th>                                                
+                                                <th class="remove">Discount upto</th>
+                                            </tr>
+                                        </thead>
+                                        <!-- Table Body -->
+                                        <tbody>
+                                            <tr ng-repeat="discount in eventsManageComponent.newEvent.discounts">                                
+                                                <td><input type="text" class="cart-pro-title" ng-model="discount.discountname"></td>
+                                                <td><input type="text" class="cart-pro-title" ng-model="discount.discounttype"></td>
+                                                <td>
+                                                    <div class="product-quantity">
+                                                        <input type="text" value="0" name="qtybox" ng-model="discount.discountvalue">
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <p class="cart-pro-price"><input type="number" ng-model="discount.couponcode"></p>
+                                                </td>                                                                
+                                                <td>
+                                                    <p class="cart-pro-price"><input type="number" ng-model="discount.discountupto"></p>
+                                                </td>                                                                
+                                                <td><button class="cart-pro-remove" ng-click="eventsManageComponent.removeDiscount(discount)"><i class="fa fa-trash-o"></i></button></td>
+                                            </tr>                            
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
             <span style="color:red">{{eventsManageComponent.message}}</span>
             <div class="input"><input type="submit" class="btn btn-dark btn-hover-red" ng-click="eventsManageComponent.addNewEvent()"
                     value="Submit"></div>
