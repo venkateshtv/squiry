@@ -26,6 +26,13 @@
                     template: '<event-details></event-details>'
                 }
             }
+        }).state('eventlanding', {
+            url: '/eventlanding/{eventname:event}/{eventid:int}',
+            views: {
+                'pages': {
+                    template: '<event-landing></event-landing>'
+                }
+            }
         });        
     }
     eventsConfig.$inject = ['$stateProvider', '$urlRouterProvider', '$urlMatcherFactoryProvider'];

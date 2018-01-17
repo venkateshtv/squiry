@@ -1,0 +1,90 @@
+<!doctype html>
+<html class="no-js" lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Squiry</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Favicon -->
+    <link rel="shortcut icon" type="image/x-icon" href="dist/img/favicon.ico">
+
+    
+    <!-- CSS
+	============================================ -->
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="dist/css/bootstrap.min.css">
+    <!-- Icon Font CSS -->
+    <link rel="stylesheet" href="dist/css/font-awesome.min.css">
+    <link rel="stylesheet" href="dist/css/pe-icon-7-stroke.css">
+    <!-- Plugins CSS -->
+    <link rel="stylesheet" href="dist/css/plugins.css">
+    <!-- Style CSS -->
+    <link rel="stylesheet" href="dist/style.css">
+   
+</head>
+
+<body id="squiryapp" ng-app="squiryapp">
+
+<!-- Main Wrapper -->
+<div id="main-wrapper" style="padding-top:20px">
+    <!-- Fubscribe Section End -->
+    <div id="loaderDiv" loader style="display:none">
+        <img src="dist/img/spinner.gif" class="ajax-loader"/>
+    </div>   
+    <div ui-view="pages"></div>    
+</div>
+
+
+<!-- JS
+============================================ -->
+<script src="dist/js/vendor/angular.min.js"></script> 
+<!-- <script src="dist/js/vendor/angular-ui-router.js"></script>         -->
+<script src="//unpkg.com/@uirouter/angularjs/release/angular-ui-router.min.js"></script>
+<script src="dist/app/app.js"></script>
+<script src="dist/app/app.config.js"></script>
+<script src="dist/app/app.vendors.js"></script>
+<script src="dist/app/app.modules.js"></script>
+<script src="dist/app/tools/tools.module.js"></script>
+<script src="dist/app/tools/tools.imageupload.directive.js"></script>
+<script src="dist/app/tools/tools.slicksliders.directive.js"></script>
+<script src="dist/app/events/events.module.js"></script>
+<script src="dist/app/events/events.config.js"></script>
+<script src="dist/app/events/events.service.js"></script>
+<script src="dist/app/events/eventdetails.controller.js"></script>
+<script src="dist/app/events/eventdetails.component.js"></script>
+<script src="dist/app/events/eventsmanage.controller.js"></script>
+<script src="dist/app/events/eventsmanage.component.js"></script>
+<script src="dist/app/events/eventlanding.component.js"></script>
+<script src="dist/app/home/home.module.js"></script>
+<script src="dist/app/home/home.config.js"></script>
+<script src="dist/app/home/home.controller.js"></script>
+<script src="dist/app/home/banners.controller.js"></script>
+<script src="dist/app/home/banners.component.js"></script>
+<script src="dist/app/home/topevents.component.js"></script>
+<script src="dist/app/home/home.component.js"></script>
+
+<!-- jQuery JS -->
+<script src="dist/js/vendor/jquery-1.12.0.min.js"></script>
+<!-- Popper JS -->
+<script src="dist/js/popper.min.js"></script>
+<!-- Bootstrap JS -->
+<script src="dist/js/bootstrap.min.js"></script>
+<!-- Plugins JS -->
+<script src="dist/js/plugins.js"></script>
+<!-- HoverDir JS -->
+<script src="dist/js/jquery.hoverdir.js"></script>
+<!-- Ajax Mail JS -->
+<script src="dist/js/ajax-mail.js"></script>
+<!-- Main JS -->
+<script src="dist/js/main.js"></script>
+ <!-- Modernizer JS -->
+ <script src="dist/js/vendor/modernizr-2.8.3.min.js"></script>
+ <!-- Google Map Api -->
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAlZPf84AAVt8_FFN7rwQY5nPgB02SlTKs"></script>
+<!-- Google Map Activation -->
+<script src="dist/map/map-one.js"></script>
+</body>
+
+</html>
