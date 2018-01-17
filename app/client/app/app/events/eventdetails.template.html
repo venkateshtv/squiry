@@ -1,10 +1,10 @@
 <!-- Single Event Section Start -->
-<div class="single-event-section section pb-90">
+<div class="single-event-section section pt-20 pb-20">
     <div class="container">
         <div class="row">
 
             <!-- Single Event Wrapper -->
-            <div class="single-event-wrapper col-sm-16 col-12 mb-50">
+            <div class="single-event-wrapper col-lg-16 col-12 mb-50">
 
                 <!-- Title -->
                 <h2 class="title">{{eventDetailsComponent.event.name}}</h2>
@@ -20,150 +20,150 @@
 
                 <!-- Image -->
                 <div class="image">
-                    <div class="image-slider"></div>
-                    <img src="{{eventDetailsComponent.event.url}}" alt="Event Detail">
-
+                    <div class="image-slider">
+                        <img src="{{eventDetailsComponent.event.url}}" alt="image loading....">
+                    </div>
                 </div>
 
-                <!-- Ticket Form -->
-                <div class="col-12">
-                    <h4 class="sub-title">Buy Tickets:</h4>
-                    <div class="table-responsive mb-30">
-                        <table class="table cart-table text-center">
 
-                            <!-- Table Head -->
-                            <thead>
-                                <tr>
-                                    <th class="name">Ticket</th>
-                                    <th class="quantity">Quantity</th>
-                                    <th class="price">price</th>
-                                    <th class="total">total</th>
-                                </tr>
-                            </thead>
-
-                            <!-- Table Body -->
-                            <tbody>
-                                <tr ng-repeat="price in eventDetailsComponent.event.prices">
-                                    <td><a href="#" class="cart-pro-title">{{price.name}}</a></td>
-                                    <td>
-                                        <div class="product-quantity">
-                                            <input type="text" value="0" name="qtybox" ng-model="price.selectedQuantity">
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <p class="cart-pro-price">{{price.price}}</p>
-                                    </td>
-                                    <td>
-                                        <p class="cart-price-total">{{eventDetailsComponent.calculatePrice(price)}}</p>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-
-                    </div>
-                    <!-- Cart Action -->
-                    <div class="row">
-                        <!-- Cart Action -->
-                        <div class="cart-action col-lg-4 col-md-6 col-12 mb-30">
-                            <h4 style="font-family: Montserrat, sans-serif;text-transform:uppercase;color:#282828;font-size: 14px;font-weight: 700;line-height: 14px;"><span>Total Price:   </span><span>Rs. {{eventDetailsComponent.calculateTotalPrice()}}</span></h4>
-                            <h4 style="font-family: Montserrat, sans-serif;text-transform:uppercase;color:#282828;font-size: 14px;font-weight: 700;line-height: 14px;"><span>After Discount:   </span><span>Rs. {{eventDetailsComponent.finalPriceBeforeTax}}</span></h4>
-                            <h4 style="font-family: Montserrat, sans-serif;text-transform:uppercase;color:#282828;font-size: 14px;font-weight: 700;line-height: 14px;"><span>Tax:   </span><span>Rs. {{eventDetailsComponent.tax}}</span></h4>
-                            <h4 style="font-family: Montserrat, sans-serif;text-transform:uppercase;color:#282828;font-size: 14px;font-weight: 700;line-height: 14px;"><span>Amount to Pay:   </span><span>Rs. {{eventDetailsComponent.finalPriceAfterTax}}</span></h4>
-
-
-                            
-                            <button class="btn btn-dark btn-hover-red" data-toggle="modal" data-target="#user-details">Buy tickets</button>
-                        </div>
-
-                    </div>
-
-                </div>
 
                 <!-- Description -->
                 <div class="description fix">
 
                     <h4 class="sub-title">Event Description:</h4>
 
-                    <p>
-                        {{eventDetailsComponent.event.description}}
-                    </p>
+                    <p>{{eventDetailsComponent.event.description}}</p>
 
                 </div>
-
-                <!-- Contact Map Section Start -->
-                <div class="contact-map-section section bg-light-gray">
+                <!-- Cart Section Start-->
+                <div class="cart-section section pt-30 pb-30">
                     <div class="container">
                         <div class="row">
+                            <h4 class="sub-title">Buy Tickets:</h4>
+                            <div class="col-12">
 
-                            <!-- Contact Map Content Start -->
-                            <div class="contact-map-content col-lg-5 col-12">
-                                <h2>Where is it happening?</h2>
-                                <p>{{eventDetailsComponent.event.address}}</p>
+                                <div class="table-responsive mb-30">
+                                    <table class="table cart-table text-center">
+
+                                        <!-- Table Head -->
+                                        <thead>
+                                            <tr>
+                                                <th class="name">Ticket</th>
+                                                <th class="quantity">Quantity</th>
+                                                <th class="price">price</th>
+                                                <th class="total">total</th>
+                                            </tr>
+                                        </thead>
+
+                                        <!-- Table Body -->
+                                        <tbody>
+                                            <tr ng-repeat="price in eventDetailsComponent.event.prices track by $index">
+                                                <td><a href="#" class="cart-pro-title">{{price.name}}</a></td>
+                                                <td>
+                                                    <div class="product-quantity">
+                                                        <input type="text" value="0" name="qtybox" ng-init="price.selectedQuantity = $index == 0 ? 1 : 0" ng-model="price.selectedQuantity">
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <p class="cart-pro-price">{{price.price}}</p>
+                                                </td>
+                                                <td>
+                                                    <p class="cart-price-total">{{eventDetailsComponent.calculatePrice(price)}}</p>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+
+                                <div class="row">
+
+                                    <!-- Cart Action -->
+                                    <div class="cart-action col-lg-4 col-md-6 col-12 mb-30">
+                                        <!-- <a href="#" class="button">Continiue Shopping</a> -->
+                                        <!-- <button class="button">update cart</button> -->
+                                    </div>
+
+                                    <!-- Cart Cuppon -->
+                                    <div class="cart-cuppon col-lg-4 col-md-6 col-12 mb-30">
+                                        <h4 class="title">Discount Code</h4>
+                                        <p>Enter your coupon code if you have</p>
+                                        <form action="#" class="cuppon-form">
+                                            <input type="text" placeholder="Cuppon Code">
+                                            <button class="button" type="button">Apply coupon</button>
+                                        </form>
+                                    </div>
+
+                                    <!-- Cart Checkout Progress -->
+                                    <div class="cart-checkout-process col-lg-4 col-md-6 col-12 mb-30">
+                                        <h4 class="title">Summary</h4>
+                                        <p><span>Subtotal</span><span>Rs. {{eventDetailsComponent.calculateTotalPrice()}}</span></p>
+                                        <p><span>After Discount</span><span>Rs. {{eventDetailsComponent.finalPriceBeforeTax}}</span></p>
+                                        <p><span>After Discount</span><span>Rs. {{eventDetailsComponent.tax}}</span></p>
+                                        <h5><span>Grand total</span><span>Rs. {{eventDetailsComponent.finalPriceAfterTax}}</span></h5>
+                                        <button class="button" data-toggle="modal" data-target="#user-details">Buy Tickets</button>
+                                    </div>
+
+                                </div>
+
                             </div>
-
                         </div>
                     </div>
-
-                    <!-- Map Section Start -->
-                    <div id="map-one" class="contact-google-map"></div>
-                    <!-- Map Section End -->
-
                 </div>
-                <!-- Contact Map Section End -->
+                <!-- Cart Section End-->
 
                 <!-- Event Creator -->
-                <!-- <div class="event-creator fix"> -->
+                <div class="event-creator fix">
 
-                <!-- Image -->
-                <!-- <div class="image float-left"><img src="dist/img/speaker/6.jpg" alt="Event Creator"></div> -->
+                    <!-- Image -->
+                    <!-- <div class="image float-left"><img src="dist/img/speaker/6.jpg" alt="Event Creator"></div> -->
 
-                <!-- Content -->
-                <!-- <div class="content fix"> -->
-                <!-- <h4><a href="#">Tollar James</a></h4> -->
-                <!-- <h6>Event Creator</h6> -->
-                <!-- <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore -->
-                <!-- et dolore magna aliqua.</p> -->
-                <!-- </div> -->
+                    <!-- Content -->
+                    <div class="content fix">
 
-                <!-- </div> -->
-                
+                        <h4 class="sub-title">Address:</h4>
+                        <p>{{eventDetailsComponent.event.address}}</p>
+                    </div>
+
+                </div>
+                <!-- Event Creator END-->
+
+
             </div>
+
 
         </div>
     </div>
 </div>
 <!-- Single Event Section End -->
 
-
-
 <!-- Modal -->
 <div id="user-details" class="modal fade" role="dialog">
-    <div class="modal-dialog">
-
-        <!-- Modal content-->
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title">Add your details</h4>
-            </div>
-            <div class="modal-body">
-                <div class="col-12 mb-50">
-                    <div class="form">
-                        <form>
-                            <div class="row">
-                                <div class="input col-md-6 col-12 mb-20"><input type="text" required placeholder="First Name *"></div>
-                                <div class="input col-md-6 col-12 mb-20"><input type="text" required placeholder="Last Name *"></div>
-                                <div class="input col-md-12 col-12 mb-20"><input type="email" required placeholder="Email *"></div>
-                                <div class="input col-12">
-                                    <input type="submit" class="btn btn-dark btn-hover-red" value="Proceed to Payment">
+        <div class="modal-dialog">
+    
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Add your details</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="col-12 mb-50">
+                        <div class="form">
+                            <form>
+                                <div class="row">
+                                    <div class="input col-md-6 col-12 mb-20"><input type="text" required placeholder="First Name *"></div>
+                                    <div class="input col-md-6 col-12 mb-20"><input type="text" required placeholder="Last Name *"></div>
+                                    <div class="input col-md-12 col-12 mb-20"><input type="email" required placeholder="Email *"></div>
+                                    <div class="input col-12">
+                                        <input type="submit" class="btn btn-dark btn-hover-red" value="Proceed to Payment">
+                                    </div>
                                 </div>
-                            </div>
-                        </form>
+                            </form>
+                        </div>
                     </div>
                 </div>
+    
             </div>
-
+    
         </div>
-
     </div>
-</div>

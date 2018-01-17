@@ -9,6 +9,9 @@ function initialize(lat,long) {
         zoom: 8,
         mapTypeId: google.maps.MapTypeId.ROADMAP
     };
+    if(!document.getElementById("map-one")){
+        return;
+    }
     var map = new google.maps.Map(document.getElementById("map-one"), mapProp);
     var marker = new google.maps.Marker({
         position: myCenter,
