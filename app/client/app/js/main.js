@@ -97,16 +97,16 @@ $(document).ready(function () {
             /*--
                 Default Image Slider
             -----------------------------------*/
-            $('.image-slider').slick({
-                arrows: false,
-                autoplay: true,
-                autoplaySpeed: 3000,
-                dots: false,
-                pauseOnFocus: false,
-                pauseOnHover: false,
-                infinite: true,
-                slidesToShow: 1,
-            });
+            // $('.image-slider').slick({
+            //     arrows: false,
+            //     autoplay: true,
+            //     autoplaySpeed: 3000,
+            //     dots: false,
+            //     pauseOnFocus: false,
+            //     pauseOnHover: false,
+            //     infinite: true,
+            //     slidesToShow: 1,
+            // });
 
             /*--
                 Speaker One Slider

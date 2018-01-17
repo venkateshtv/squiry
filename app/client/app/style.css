@@ -2469,3 +2469,11 @@ ul[class*="list-"] li + li { margin-top: 13px; }
     visibility: visible;
     opacity: 1;    
 }
+
+.detail-img{
+	padding:5px;
+}
+@media only screen and (max-width: 767px)
+{.detail-img {
+	padding-right: 15px;
+}}

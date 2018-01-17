@@ -19,10 +19,12 @@
                 </div>
 
                 <!-- Image -->
-                <div class="image">
-                    <div class="image-slider">
+                <div class="image detail-img">
+                       
                         <img src="{{eventLandingComponent.event.url}}" alt="image loading....">
-                    </div>
+                    <!-- <div class="image-slider" slick-slider valuetowait="eventLandingComponent.event">
+                        
+                    </div> -->
                 </div>
 
 
@@ -61,7 +63,11 @@
                                                 <td><a href="#" class="cart-pro-title">{{price.name}}</a></td>
                                                 <td>
                                                     <div class="product-quantity">
-                                                        <input type="text" value="0" name="qtybox" ng-init="price.selectedQuantity = $index == 0 ? 1 : 0" ng-model="price.selectedQuantity">
+                                                            
+                                                            <select ng-model="price.selectedQuantity" ng-init="price.selectedQuantity = $index == 0 ? eventLandingComponent.quantities[1] : eventLandingComponent.quantities[0]"  ng-options="quantity.display for quantity in eventLandingComponent.quantities">
+                                                                    
+                                                            </select>
+                                                        
                                                     </div>
                                                 </td>
                                                 <td>
@@ -84,7 +90,7 @@
                                     </div>
 
                                     <!-- Cart Cuppon -->
-                                    <div class="cart-cuppon col-lg-4 col-md-6 col-12 mb-30">
+                                    <div class="cart-cuppon col-xs-1 col-lg-4 col-md-6 col-12 mb-30">
                                         <h4 class="title">Discount Code</h4>
                                         <p>Enter your coupon code if you have</p>
                                         <form action="#" class="cuppon-form">
@@ -94,7 +100,7 @@
                                     </div>
 
                                     <!-- Cart Checkout Progress -->
-                                    <div class="cart-checkout-process col-lg-4 col-md-6 col-12 mb-30">
+                                    <div class="cart-checkout-process col-xs-1 col-lg-4 col-md-6 col-12 mb-30">
                                         <h4 class="title">Summary</h4>
                                         <p><span>Subtotal</span><span>Rs. {{eventLandingComponent.calculateTotalPrice()}}</span></p>
                                         <p><span>After Discount</span><span>Rs. {{eventLandingComponent.finalPriceBeforeTax}}</span></p>
@@ -128,6 +134,9 @@
                 </div>
                 <!-- Event Creator END-->
 
+                <!-- Map Section Start -->
+                <div id="map-one" class="home-google-map"></div>
+                <!-- Map Section End -->
 
             </div>
 
@@ -139,32 +148,32 @@
 
 <!-- Modal -->
 <div id="user-details" class="modal fade" role="dialog">
-        <div class="modal-dialog">
-    
-            <!-- Modal content-->
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <h4 class="modal-title">Add your details</h4>
-                </div>
-                <div class="modal-body">
-                    <div class="col-12 mb-50">
-                        <div class="form">
-                            <form>
-                                <div class="row">
-                                    <div class="input col-md-6 col-12 mb-20"><input type="text" required placeholder="First Name *"></div>
-                                    <div class="input col-md-6 col-12 mb-20"><input type="text" required placeholder="Last Name *"></div>
-                                    <div class="input col-md-12 col-12 mb-20"><input type="email" required placeholder="Email *"></div>
-                                    <div class="input col-12">
-                                        <input type="submit" class="btn btn-dark btn-hover-red" value="Proceed to Payment">
-                                    </div>
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Add your details</h4>
+            </div>
+            <div class="modal-body">
+                <div class="col-12 mb-50">
+                    <div class="form">
+                        <form>
+                            <div class="row">
+                                <div class="input col-md-6 col-12 mb-20"><input type="text" required placeholder="First Name *"></div>
+                                <div class="input col-md-6 col-12 mb-20"><input type="text" required placeholder="Last Name *"></div>
+                                <div class="input col-md-12 col-12 mb-20"><input type="email" required placeholder="Email *"></div>
+                                <div class="input col-12">
+                                    <input type="submit" class="btn btn-dark btn-hover-red" value="Proceed to Payment">
                                 </div>
-                            </form>
-                        </div>
+                            </div>
+                        </form>
                     </div>
                 </div>
-    
             </div>
-    
+
         </div>
+
     </div>
+</div>
