@@ -2482,3 +2482,8 @@ ul[class*="list-"] li + li { margin-top: 13px; }
 {.apply-coupon {
 	float:right !important;
 }}
+
+@media only screen and (max-width: 767px)
+{.cart-checkout-process .title {
+	text-align:left !important;
+}}
