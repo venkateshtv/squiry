@@ -62,7 +62,7 @@
                                             <tr ng-repeat="price in eventLandingComponent.event.prices track by $index">
                                                 <td><a href="#" class="cart-pro-title">{{price.name}}</a></td>
                                                 <td>
-                                                    <div class="product-quantity">
+                                                    <div class="cart-pro-title">
                                                             
                                                             <select ng-model="price.selectedQuantity" ng-init="price.selectedQuantity = $index == 0 ? eventLandingComponent.quantities[1] : eventLandingComponent.quantities[0]"  ng-options="quantity.display for quantity in eventLandingComponent.quantities">
                                                                     
