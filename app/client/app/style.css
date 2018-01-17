@@ -2472,8 +2472,13 @@ ul[class*="list-"] li + li { margin-top: 13px; }
 
 .detail-img{
 	padding:5px;
+	max-width: 100%;
+    height: auto;
+}
+.apply-coupon{
+	visibility: visible;
 }
 @media only screen and (max-width: 767px)
-{.detail-img {
-	padding-right: 15px;
+{.apply-coupon {
+	float:right !important;
 }}
