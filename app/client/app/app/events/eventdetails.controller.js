@@ -29,8 +29,9 @@
             if(vm.totalPrice == 0 || !vm.finalPriceBeforeTax || vm.finalPriceBeforeTax == 0){
                 return 0;
             }
-            vm.tax = (vm.finalPriceBeforeTax * 3/100);
-            vm.finalPriceAfterTax =  vm.finalPriceBeforeTax + vm.tax;
+            vm.bookingfee = +((vm.finalPriceBeforeTax * 3/100).toFixed(2));
+            vm.tax = +((vm.bookingfee * 18/100).toFixed(2));
+            vm.finalPriceAfterTax =  vm.finalPriceBeforeTax + vm.bookingfee + vm.tax;
             return vm.totalPrice;
         }
                 
