@@ -33,6 +33,18 @@
                     template: '<event-landing></event-landing>'
                 }
             }
+        }).state('eventcheckout', {
+            url: '/eventlanding/{eventname:event}/{eventid:int}/checkout',            
+            views: {
+                'pages': {
+                    templateUrl: 'dist/app/events/eventcheckout.template.html',
+                    controller:'eventCheckoutController',
+                    controllerAs:'eventCheckout',
+                    params:{
+                        'eventsession':null
+                    }
+                }                
+            }
         });        
     }
     eventsConfig.$inject = ['$stateProvider', '$urlRouterProvider', '$urlMatcherFactoryProvider'];
