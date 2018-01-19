@@ -10,6 +10,30 @@
         vm.finalPriceBeforeTax = 0;
         vm.quantities=[{display:" ",value:0},{display:1,value:1},{display:2,value:2},{display:3,value:3},{display:4,value:4},{display:5,value:5},{display:6,value:6},{display:7,value:7},{display:8,value:8},{display:9,value:9},{display:10,value:10}];
         vm.checkout = checkout;
+        vm.verifyCoupon = verifyCoupon;
+        vm.discountMessage = "";
+        
+        function updateDiscounts(discountname,discounttype){
+            for(var i in vm.discounts.coupondiscounts){
+                discount = vm.discounts.coupondiscounts[i];
+                if(discount.name == discountname && discounttype == discounttype){
+                    discount.validcoupon = true;
+                }
+            }
+        }
+        function verifyCoupon(coupon){
+            vm.discountMessage = "";
+            events.verifyCoupon(vm.event.id,coupon).then(function(result){
+                if(result.data && result.data.verified === "true"){
+                    vm.discountMessage = "Coupon verified";
+                    updateDiscounts(result.data.discountname,result.data.discounttype);
+                } else {
+                    vm.discountMessage = "Not a valid coupon";
+                }
+            }).catch(function(error){
+                vm.discountMessage = "Something went wrong while verifying coupon";
+            });
+        }
         function checkout(){
             $state.go('eventcheckout', {eventname:$stateParams.eventname,eventid:$stateParams.eventid,eventsession:JSON.stringify(event)});
         }

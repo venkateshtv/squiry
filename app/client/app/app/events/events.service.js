@@ -10,7 +10,11 @@
         vm.updateEvent = updateEvent;
         vm.uploadEventImage = uploadEventImage;
         vm.calculateDiscountPrice = calculateDiscountPrice;
+        vm.verifyCoupon = verifyCoupon;
 
+        function verifyCoupon(eventid, couponcode){
+            return $http.get('/api/verifydiscountcoupon/'+eventid+'/'+couponcode);
+        }
         function calculateDiscountPrice(totalPrice,percentageDiscount, discounts) {
             if (totalPrice === 0 || (discounts && discounts.length == 0)) {
                 return;
@@ -46,7 +50,7 @@
         }
 
         function getEventDetails(eventname, eventid) {
-            return $http.get('api/event/' + eventname + '/' + eventid)
+            return $http.get('api/event/' + eventname + '/' + eventid);
         }
 
         function getAllEvents() {

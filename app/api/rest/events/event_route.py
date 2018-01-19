@@ -54,3 +54,15 @@ class EventDetails(BaseResource):
             if discounts != None:
                 event['discounts'] = discounts
         return event
+
+@rest_resource
+class Discount(BaseResource):
+    """ /api/verifydiscountcoupon """
+    endpoints = ['/verifydiscountcoupon/<int:eventid>/<string:couponcode>']
+
+    def get(self,eventid,couponcode):
+        discount = read((""" select discountname,discounttype from discounts where eventid = {} and couponcode = '{}';""").format(eventid,couponcode), False)
+        if discount is not None:
+            return {"verified":"true", "discountname": discount['discountname'], "discounttype": discount['discounttype']}
+        else:
+            return {"verified":"false"} 
