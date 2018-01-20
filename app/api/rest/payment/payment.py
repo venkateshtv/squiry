@@ -44,12 +44,17 @@ class PayU():
         key=request_params["key"]
         productinfo=request_params["productinfo"]
         email=request_params["email"]
+        udf1 = request_params["udf1"]
+        udf2 = request_params["udf2"]
+        udf3 = request_params["udf3"]
+        udf4 = request_params["udf4"]
+        udf5 = request_params["udf5"]
         salt="eCwWELxi"
         try:
             additionalCharges=request_params["additionalCharges"]
             retHashSeq=additionalCharges+'|'+salt+'|'+status+'|||||||||||'+email+'|'+firstname+'|'+productinfo+'|'+amount+'|'+txnid+'|'+key
         except Exception:
-            retHashSeq = salt+'|'+status+'|||||||||||'+email+'|'+firstname+'|'+productinfo+'|'+amount+'|'+txnid+'|'+key
+            retHashSeq = salt+'|'+status+'||||||'+ udf5 +'|'+ udf4 +'|'+ udf3 +'|'+ udf2 +'|'+ udf1 +'|'+email+'|'+firstname+'|'+productinfo+'|'+amount+'|'+txnid+'|'+key
         hashh=hashlib.sha512(retHashSeq.encode('utf-8')).hexdigest().lower()
         if(hashh !=posted_hash):
             print ("Invalid Transaction. Please try again")
