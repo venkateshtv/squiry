@@ -11,7 +11,7 @@
         vm.quantities=[{display:" ",value:0},{display:1,value:1},{display:2,value:2},{display:3,value:3},{display:4,value:4},{display:5,value:5},{display:6,value:6},{display:7,value:7},{display:8,value:8},{display:9,value:9},{display:10,value:10}];
         vm.checkout = checkout;
         vm.verifyCoupon = verifyCoupon;
-        vm.discountMessage = "";
+        vm.discountMessage = "";        
         
         function updateDiscounts(discountname,discounttype){
             for(var i in vm.discounts.coupondiscounts){
@@ -35,7 +35,9 @@
             });
         }
         function checkout(){
-            $state.go('eventcheckout', {eventname:$stateParams.eventname,eventid:$stateParams.eventid,eventsession:JSON.stringify(event)});
+            vm.event.finalPriceAfterTax = vm.finalPriceAfterTax;
+            events.addToCart(vm.event);
+            $state.go('eventcheckout');
         }
         function calculatePrice(price){
             var selectedQuatity = 0;
@@ -101,8 +103,7 @@
             getEventDetail($stateParams.eventname,$stateParams.eventid);    
             $window.openGoogleMaps(13.0827,80.2707);
         }
-        init();
-        
+        init();        
     }
     eventDetailsController.$inject = ['$scope', '$state','$stateParams', 'events','$window'];
     angular.module('squiryapp.events').controller('eventDetailsController', eventDetailsController);

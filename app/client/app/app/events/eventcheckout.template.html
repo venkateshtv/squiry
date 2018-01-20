@@ -8,10 +8,10 @@
     <div class="form">
         <form>
             <div class="row">
-                <div class="input col-md-6 col-12 mb-20"><input type="text" placeholder="Name"></div>
-                <div class="input col-md-6 col-12 mb-20"><input type="email" placeholder="Email"></div>
-                <div class="input col-md-6 col-12 mb-20"><input type="text" placeholder="Phone"></div>
-                <div class="input col-12"><input type="submit" class="btn btn-dark btn-hover-red btn-square" value="Proceed to payment"></div>
+                <div class="input col-md-6 col-12 mb-20"><input type="text" placeholder="Name" ng-model="eventCheckout.user.firstname"></div>
+                <div class="input col-md-6 col-12 mb-20"><input type="email" placeholder="Email" ng-model="eventCheckout.user.email"></div>
+                <div class="input col-md-6 col-12 mb-20"><input type="text" placeholder="Phone" ng-model="eventCheckout.user.phone"></div>
+                <div class="input col-12"><input type="submit" class="btn btn-dark btn-hover-red btn-square" value="Proceed to payment" ng-click="eventCheckout.proceedToPayment()"></div>
             </div>
         </form>
     </div>

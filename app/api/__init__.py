@@ -22,4 +22,5 @@ from app.api import views
 from app.api.rest import routing
 from app.api.rest.events import event_route
 from app.api.rest.events import event_manager
+from app.api.rest.payment import payment
 

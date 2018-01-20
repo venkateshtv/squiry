@@ -11,7 +11,21 @@
         vm.uploadEventImage = uploadEventImage;
         vm.calculateDiscountPrice = calculateDiscountPrice;
         vm.verifyCoupon = verifyCoupon;
-
+        vm.addToCart= addToCart;
+        vm.getCart = getCart;
+        vm.getPaymentRequest = getPaymentRequest;
+        
+        var cart = [];
+        function addToCart(eventinfo){
+            cart= [];
+            cart.push(eventinfo);
+        }
+        function getCart(){
+            return cart;
+        }
+        function getPaymentRequest(params){
+            return $http.post('/api/paymentrequest',params);
+        }
         function verifyCoupon(eventid, couponcode){
             return $http.get('/api/verifydiscountcoupon/'+eventid+'/'+couponcode);
         }

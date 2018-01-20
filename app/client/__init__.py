@@ -1,6 +1,7 @@
 """ Client App """
 
 from flask import Blueprint, render_template
+from app.api.rest.payment import payment
 
 # client_bp = Blueprint('client_app', __name__,
 #                         url_prefix='',
@@ -22,3 +23,16 @@ def index():
 def external():
     return render_template('external_index.html')
 
+@client_bp.route('/paymentsuccess',methods=['POST'])
+def payment_success():
+    payment_gateway = PaymentFactory().get_payment_gateway(gateway)
+    payment_validated = payment_gateway.validate_payment_request(request)
+    if payment_validated['validtransaction'] == 'true':
+        return render_template('payment.html',message=payment_validated['message'])
+    else:
+        return render_template('payment.html',message=payment_validated['message'])
+
+
+@client_bp.route('/paymentfailure',methods=['POST'])
+def payment_failure():    
+    render_template('payment.html',message=request.POST["status"])

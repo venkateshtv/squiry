@@ -34,15 +34,12 @@
                 }
             }
         }).state('eventcheckout', {
-            url: '/eventlanding/{eventname:event}/{eventid:int}/checkout',            
+            url: '/eventlanding/checkout',            
             views: {
                 'pages': {
                     templateUrl: 'dist/app/events/eventcheckout.template.html',
                     controller:'eventCheckoutController',
-                    controllerAs:'eventCheckout',
-                    params:{
-                        'eventsession':null
-                    }
+                    controllerAs:'eventCheckout'
                 }                
             }
         });        
