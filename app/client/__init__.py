@@ -29,7 +29,7 @@ def external():
 def payment_success():
     try:
         #return render_template('payment.html',message=json.dumps(request.form))
-        payment_gateway = PaymentFactory().get_payment_gateway(gateway)
+        payment_gateway = PaymentFactory().get_payment_gateway("payu")
         payment_validated = payment_gateway.validate_payment_request(request.form)
         if payment_validated['validtransaction'] == 'true':
             return render_template('payment.html',message=payment_validated['message'])
