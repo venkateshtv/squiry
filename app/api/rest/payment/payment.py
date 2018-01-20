@@ -36,17 +36,17 @@ class PayU():
         return {'txnid':txnid,'merchant_key':key,'hash':hashh}
     
     def validate_payment_request(self,request_params):
-        status=request_params.POST["status"]
-        firstname=request_params.POST["firstname"]
-        amount=request_params.POST["amount"]
-        txnid=request_params.POST["txnid"]
-        posted_hash=request_params.POST["hash"]
-        key=request_params.POST["key"]
-        productinfo=request_params.POST["productinfo"]
-        email=request_params.POST["email"]
+        status=request_params["status"]
+        firstname=request_params["firstname"]
+        amount=request_params["amount"]
+        txnid=request_params["txnid"]
+        posted_hash=request_params["hash"]
+        key=request_params["key"]
+        productinfo=request_params["productinfo"]
+        email=request_params["email"]
         salt="eCwWELxi"
         try:
-            additionalCharges=request_params.POST["additionalCharges"]
+            additionalCharges=request_params["additionalCharges"]
             retHashSeq=additionalCharges+'|'+salt+'|'+status+'|||||||||||'+email+'|'+firstname+'|'+productinfo+'|'+amount+'|'+txnid+'|'+key
         except Exception:
             retHashSeq = salt+'|'+status+'|||||||||||'+email+'|'+firstname+'|'+productinfo+'|'+amount+'|'+txnid+'|'+key
