@@ -41,4 +41,4 @@ def payment_success():
 
 @client_bp.route('/paymentfailure',methods=['GET','POST'])
 def payment_failure():    
-    render_template('payment.html',message=request.POST["status"])
+    render_template('payment.html',message=request.form["status"])

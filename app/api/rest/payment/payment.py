@@ -5,6 +5,30 @@ from flask import request
 from app.api.rest.base import BaseResource, SecureResource, rest_resource
 from app.api.db import get_data,insertupdate,read
 
+def send_email(recipient, subject, body):
+    import smtplib
+
+    gmail_user = "info@squiry.in"
+    gmail_pwd = "Squiry123"
+    FROM = "info@squiry.in"
+    TO = recipient if type(recipient) is list else [recipient]
+    SUBJECT = subject
+    TEXT = body
+
+    # Prepare actual message
+    message = """From: %s\nTo: %s\nSubject: %s\n\n%s
+    """ % (FROM, ", ".join(TO), SUBJECT, TEXT)
+    try:
+        server = smtplib.SMTP("smtp.gmail.com", 587)
+        server.ehlo()
+        server.starttls()
+        server.login(gmail_user, gmail_pwd)
+        server.sendmail(FROM, TO, message)
+        server.close()
+        print ('successfully sent the mail')
+    except:
+        print ("failed to send mail")
+
 class PayU():
     #XZYmyU9I
     #zo7yEZu9UZ
@@ -58,13 +82,14 @@ class PayU():
         hashh=hashlib.sha512(retHashSeq.encode('utf-8')).hexdigest().lower()
         if(hashh !=posted_hash):
             print ("Invalid Transaction. Please try again")
+            send_email(email,"Payment failure from Squiry", "You recent transaction "+txnid+ "is not valid")
             return {"validtransaction":'false',"message":'Invalid Transaction. Please try again'}            
         else:
             message = "Thank You. Your order status is " + status +"\n"
             message += "Your Transaction ID for this transaction is " +txnid +"\n"
             message += "We have received a payment of Rs. "+  amount +". Please check your mail for more details"
+            send_email(email,"Payment success from Squiry", message)
             return {"validtransaction":'true',"message":message}
-
 
 gateway = "payu"
 class PaymentFactory():
