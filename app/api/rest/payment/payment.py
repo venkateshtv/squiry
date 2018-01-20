@@ -8,9 +8,9 @@ from app.api.db import get_data,insertupdate,read
 def send_email(recipient, subject, body):
     import smtplib
 
-    gmail_user = "info@squiry.in"
-    gmail_pwd = "Squiry123"
-    FROM = "info@squiry.in"
+    gmail_user = "impelox@gmail.com"
+    gmail_pwd = "QpAlZm123#"
+    FROM = "Squiry"
     TO = recipient if type(recipient) is list else [recipient]
     SUBJECT = subject
     TEXT = body
