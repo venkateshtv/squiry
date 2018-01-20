@@ -23,7 +23,7 @@ def index():
 def external():
     return render_template('external_index.html')
 
-@client_bp.route('/paymentsuccess',methods=['POST'])
+@client_bp.route('/paymentsuccess',methods=['GET','POST'])
 def payment_success():
     payment_gateway = PaymentFactory().get_payment_gateway(gateway)
     payment_validated = payment_gateway.validate_payment_request(request)
@@ -33,6 +33,6 @@ def payment_success():
         return render_template('payment.html',message=payment_validated['message'])
 
 
-@client_bp.route('/paymentfailure',methods=['POST'])
+@client_bp.route('/paymentfailure',methods=['GET','POST'])
 def payment_failure():    
     render_template('payment.html',message=request.POST["status"])
