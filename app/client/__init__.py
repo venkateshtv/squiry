@@ -27,13 +27,17 @@ def external():
 
 @client_bp.route('/paymentsuccess',methods=['GET','POST'])
 def payment_success():
-    #return render_template('payment.html',message=json.dumps(request.form))
-    payment_gateway = PaymentFactory().get_payment_gateway(gateway)
-    payment_validated = payment_gateway.validate_payment_request(request.form)
-    if payment_validated['validtransaction'] == 'true':
-         return render_template('payment.html',message=payment_validated['message'])
-    else:
-         return render_template('payment.html',message=payment_validated['message'])
+    try:
+
+        #return render_template('payment.html',message=json.dumps(request.form))
+        payment_gateway = PaymentFactory().get_payment_gateway(gateway)
+        payment_validated = payment_gateway.validate_payment_request(request.form)
+        if payment_validated['validtransaction'] == 'true':
+            return render_template('payment.html',message=payment_validated['message'])
+        else:
+            return render_template('payment.html',message=payment_validated['message'])
+    except Exception as e:
+        return render_template('payment.html',message=str(e))
 
 
 @client_bp.route('/paymentfailure',methods=['GET','POST'])
