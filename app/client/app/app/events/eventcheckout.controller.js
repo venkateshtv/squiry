@@ -49,8 +49,8 @@
             formDict['udf3']=params.udf3;
             formDict['udf4']=params.udf4;
             formDict['udf5']=params.udf5;
-            formDict['furl']='https://squiryapp.herokuapp.com/payment_failure';
-            formDict['surl']='https://squiryapp.herokuapp.com/payment_success';
+            formDict['furl']='https://squiryapp.herokuapp.com/paymentfailure';
+            formDict['surl']='https://squiryapp.herokuapp.com/paymentsuccess';
             form = create_form_elements(form,formDict);
             document.body.appendChild(form);
             form.submit();
