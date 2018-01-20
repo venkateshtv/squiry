@@ -1,7 +1,7 @@
 """ Client App """
 
 from flask import Blueprint, render_template
-from app.api.rest.payment import payment
+from app.api.rest.payment.payment import PayU,PaymentFactory
 import json
 from flask import request
 
@@ -28,7 +28,6 @@ def external():
 @client_bp.route('/paymentsuccess',methods=['GET','POST'])
 def payment_success():
     try:
-
         #return render_template('payment.html',message=json.dumps(request.form))
         payment_gateway = PaymentFactory().get_payment_gateway(gateway)
         payment_validated = payment_gateway.validate_payment_request(request.form)
