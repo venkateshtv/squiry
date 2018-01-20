@@ -26,8 +26,10 @@ def send_email(recipient, subject, body):
         server.sendmail(FROM, TO, message)
         server.close()
         print ('successfully sent the mail')
-    except:
+        return None
+    except Exception as e:
         print ("failed to send mail")
+        return str(e)
 
 class PayU():
     #XZYmyU9I
@@ -88,7 +90,7 @@ class PayU():
             message = "Thank You. Your order status is " + status +"\n"
             message += "Your Transaction ID for this transaction is " +txnid +"\n"
             message += "We have received a payment of Rs. "+  amount +". Please check your mail for more details"
-            send_email(email,"Payment success from Squiry", message)
+            message += send_email(email,"Payment success from Squiry", message)
             return {"validtransaction":'true',"message":message}
 
 gateway = "payu"
