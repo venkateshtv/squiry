@@ -27,7 +27,7 @@ def external():
 
 @client_bp.route('/paymentsuccess',methods=['GET','POST'])
 def payment_success():
-    return render_template('payment.html',message=json.dumps(request.headers['Content-Type']))
+    return render_template('payment.html',message=json.dumps(request.form))
     # payment_gateway = PaymentFactory().get_payment_gateway(gateway)
     # payment_validated = payment_gateway.validate_payment_request(request)
     # if payment_validated['validtransaction'] == 'true':
