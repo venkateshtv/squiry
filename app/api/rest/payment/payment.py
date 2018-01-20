@@ -50,7 +50,7 @@ class PayU():
             retHashSeq=additionalCharges+'|'+salt+'|'+status+'|||||||||||'+email+'|'+firstname+'|'+productinfo+'|'+amount+'|'+txnid+'|'+key
         except Exception:
             retHashSeq = salt+'|'+status+'|||||||||||'+email+'|'+firstname+'|'+productinfo+'|'+amount+'|'+txnid+'|'+key
-        hashh=hashlib.sha512(retHashSeq).hexdigest().lower()
+        hashh=hashlib.sha512(retHashSeq.encode('utf-8')).hexdigest().lower()
         if(hashh !=posted_hash):
             print ("Invalid Transaction. Please try again")
             return {validtransaction:'false',message:'Invalid Transaction. Please try again'}            
