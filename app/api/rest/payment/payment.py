@@ -53,12 +53,12 @@ class PayU():
         hashh=hashlib.sha512(retHashSeq.encode('utf-8')).hexdigest().lower()
         if(hashh !=posted_hash):
             print ("Invalid Transaction. Please try again")
-            return {validtransaction:'false',message:'Invalid Transaction. Please try again'}            
+            return {"validtransaction":'false',"message":'Invalid Transaction. Please try again'}            
         else:
             message = "Thank You. Your order status is " + status +"\n"
             message += "Your Transaction ID for this transaction is " +txnid +"\n"
             message += "We have received a payment of Rs. "+  amount +". Please check your mail for more details"
-            return {validtransaction:'true',message:message}
+            return {"validtransaction":'true',"message":message}
 
 
 gateway = "payu"
