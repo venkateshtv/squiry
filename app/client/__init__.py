@@ -41,4 +41,6 @@ def payment_success():
 
 @client_bp.route('/paymentfailure',methods=['GET','POST'])
 def payment_failure():    
+    payment_gateway = PaymentFactory().get_payment_gateway('payu')
+    paymentfailure = payment_gateway.failed_transaction(request.form)
     render_template('payment.html',message=request.form["status"])
