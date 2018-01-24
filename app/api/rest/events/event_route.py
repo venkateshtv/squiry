@@ -39,8 +39,8 @@ class EventDetails(BaseResource):
     """ /api/event """
     endpoints = ['/event/<string:eventname>/<int:eventid>']
 
-    def get(self,eventname,eventid):                
-        event = read("""select e.*,c.name as categoryname from event e inner join eventcategory c on e.categoryid = c.id where e.name='{}' and e.id={};""".format(eventname,eventid), False)          
+    def get(self,eventname,eventid):                        
+        event = read("""select e.*,c.name as categoryname from event e inner join eventcategory c on e.categoryid = c.id where e.id={};""".format(eventid), False)          
         if(event):
             print("Event  ",event)
             prices = get_prices(event['id']) 

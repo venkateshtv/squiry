@@ -30,7 +30,7 @@
         function payment_order(params, paymentRequest){
             //Create PaymentFormdata
             //Post form
-            var payU = "https://test.payu.in/_payment";
+            var payU = "https://secure.payu.in/_payment";//"https://test.payu.in/_payment";
             var form = document.createElement("form");
             form.setAttribute("method", "POST");
             form.setAttribute("action", payU);

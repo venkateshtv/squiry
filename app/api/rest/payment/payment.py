@@ -40,19 +40,23 @@ class PayU():
     #key="gtKFFx"
     #SALT = "eCwWELxi"
     #PAYU_BASE_URL = "https://sandboxsecure.payu.in/_payment"
-	def create_transaction(self,params):
-        query = """INSERT INTO transactions (eventid,paymentstatus,amount,useremail,userphonenumber,createddate) VALUES ({},'{}',{},'{}',{},'{}')"""
+	
+    def create_transaction(self,params):        
+        query = "INSERT INTO transactions"
+        query += """  (eventid,paymentstatus,amount,useremail,userphonenumber,createddate)"""
+        query += """ VALUES ({},'{}',{},'{}',{},'{}') RETURNING txnid"""
         query = query.format(params.get('productinfo'),'initiated',params.get('amount'),params.get('email'),params.get('phone'),str(datetime.datetime.now()))
         return insertupdate(query)
-    
+        
     def create_payment_request(self,params):
-        key="gtKFFx"
-        SALT = "eCwWELxi"
+        key="XZYmyU9I"
+        SALT = "zo7yEZu9UZ"
         PAYU_BASE_URL = "https://sandboxsecure.payu.in/_payment"
         hash_object = hashlib.sha256(b'randint(0,20)')
-        txnid= uuid.uuid4().int#params.get('phone')+datetime.datetime.now().strftime("%Y%m%d%H%M")#hash_object.hexdigest()[0:20]
+        #txnid= uuid.uuid4().int#params.get('phone')+datetime.datetime.now().strftime("%Y%m%d%H%M")#hash_object.hexdigest()[0:20]
         params['key']= key        
-        params['txnid'] = create_transaction(params).get('id')
+        params['txnid'] = self.create_transaction(params).get('txnid')
+        print("TXNID", params['txnid'])
         hashSequence = "key|txnid|amount|productinfo|firstname|email|udf1|udf2|udf3|udf4|udf5|udf6|udf7|udf8|udf9|udf10"
         hash_string=''
         hashVarsSeq= hashSequence.split('|')        
@@ -65,7 +69,7 @@ class PayU():
         hash_string+= SALT
         print("HASH",hash_string)
         hashh= hashlib.sha512(hash_string.encode('utf-8')).hexdigest().lower()
-        return {'txnid':txnid,'merchant_key':key,'hash':hashh}
+        return {'txnid':params['txnid'],'merchant_key':key,'hash':hashh}
     
     def validate_payment_request(self,request_params):
         status=request_params["status"]
@@ -94,7 +98,8 @@ class PayU():
             send_email(email,"Payment failure from Squiry", "You recent transaction "+txnid+ "is not valid")
             return {"validtransaction":'false',"message":'Invalid Transaction. Please try again'}            
         else:
-            create_barcode(txnid)
+            barcode = self.create_barcode(txnid)
+            self.update_barcode(txnid,productinfo,barcode)
             message = "Thank You. Your order status is " + status +"\n"
             message += "Your Transaction ID for this transaction is " +txnid +"\n"
             message += "We have received a payment of Rs. "+  amount +". Please check your mail for more details"
@@ -105,24 +110,30 @@ class PayU():
         #update db
         #Send Mail
         print ("Failed Transactions")
-    
-    
 
-    def random_with_N_digits(n):
+    def random_with_N_digits(self,n):
         range_start = 10**(n-1)
         range_end = (10**n)-1
+        print("N",n)
+        print("RANGE",range_start)
+        print("RANGE",range_end)
         return randint(range_start, range_end)
 
     def create_barcode(self,txnid):
         num_to_generate = 0
-        barcode_string = txnid
-        if len(str(txnid)) < 13:
-            num_to_generate = 13-len(str(txnid))
+        barcode_string = str(txnid)
+        if len(barcode_string) < 13:
+            num_to_generate = 13-len(barcode_string)
             ran_num = random_with_N_digits(num_to_generate)
             barcode_string += str(ran_num)
-        ean = barcode.get('ean13',barcode_string, writer=ImageWriter())
-        path = os.path.join(os.path.abspath(os.curdir),'app','client','app','barcodes',str(txnid))
+        ean = barcode.get('ean13',barcode_string, writer=ImageWriter())    
+        path = os.path.join(os.path.abspath(os.curdir),'app','client','app','barcodes',str(barcode_string))
         file = ean.save(path)
+        return barcode_string
+
+    def update_barcode(self,id,barcode):
+        query = """ UPDATE transactions set barcode= {} where id = {}""".format(barcode,id)
+        return insertupdate(query)
 
 gateway = "payu"
 class PaymentFactory():
