@@ -101,7 +101,7 @@
         }
         function init() {            
             getEventDetail($stateParams.eventname,$stateParams.eventid);    
-            $window.openGoogleMaps(13.0827,80.2707);
+            $window.openGoogleMaps(13.033655,80.0442304);
         }
         init();        
     }
