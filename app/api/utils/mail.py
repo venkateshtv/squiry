@@ -13,11 +13,11 @@ def send_mail(recipient,bcc,subject,body,isPlain):
         msg['Subject'] = subject
         msg['From'] = 'donotreply@squiry.in'
         msg['To'] = recipient
-        toAddr =[[recipient]]
+        toAddr =[[recipient],bcc]
                   
         if bcc:
             msg['BCC'] = ",".join(i for i in bcc)
-            toAddr.append(bcc)
+            #toAddr.append(bcc)
         
         # Record the MIME types of both parts - text/plain and text/html.
         if isPlain:
