@@ -39,7 +39,7 @@ def send_mail(recipient,bcc,subject,body,isPlain):
         # sendmail function takes 3 arguments: sender's address, recipient's address
         # and message to send - here it is sent as one string.
         
-        server.sendmail(me, toAddr, msg.as_string())
+        server.sendmail(recipient, toAddr, msg.as_string())
         server.quit()
         return True
     except Exception as e:
