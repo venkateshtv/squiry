@@ -13,7 +13,7 @@ def send_mail(recipient,bcc,subject,body,isPlain):
         msg['Subject'] = subject
         msg['From'] = 'donotreply@squiry.in'
         msg['To'] = recipient
-        toAddr =[[you]]
+        toAddr =[[recipient]]
                   
         if bcc:
             msg['BCC'] = ",".join(i for i in bcc)
