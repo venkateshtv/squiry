@@ -82,7 +82,7 @@ class PayU():
             return {"validtransaction":'false',"message":'Invalid Transaction. Please try again'}            
         else:
             barcode = self.create_barcode(txnid)
-            self.update_barcode(txnid,productinfo,barcode)
+            self.update_barcode(txnid,barcode)
             message = """<html> <head></head> <body> """
             message += """ Hi <b>{}</b><br/>""".format(firstname)
             message += """ Thank you for registering to our event <b>{}</b> <br/>""".format(udf1)
