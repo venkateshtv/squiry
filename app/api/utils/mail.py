@@ -3,7 +3,8 @@ import smtplib
 
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
-
+import sendgrid
+import os
 from sendgrid.helpers.mail import *
 
 def send_mail(recipient,bcc,subject,body):
