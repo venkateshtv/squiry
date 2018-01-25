@@ -7,7 +7,7 @@ from barcode.writer import ImageWriter
 from flask import request
 from app.api.rest.base import BaseResource, SecureResource, rest_resource
 from app.api.db import get_data,insertupdate,read
-from app.api.utils.mail import send_email
+from app.api.utils.mail import send_mail
 
 class PayU():
     #XZYmyU9I
