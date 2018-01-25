@@ -4,7 +4,20 @@ import smtplib
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 
-def send_mail(recipient,bcc,subject,body,isPlain):
+from sendgrid.helpers.mail import *
+
+def send_mail(recipient,bcc,subject,body):
+    sg = sendgrid.SendGridAPIClient(apikey=os.environ.get('SENDGRID_API_KEY'))
+    from_email = Email("donotreply@squiry.in")
+    to_email = Email(recipient)
+    content= Content("text/plain",body)
+    mail = Mail(from_email,subject,to_email,content)
+    response = sg.client.mail.send.post(request_body=mail.get())
+    print(response.status_code)
+    print(response.body)
+    print(response.headers)
+
+def send_mail_smtp(recipient,bcc,subject,body,isPlain):
 
     try:        
         print('entering mail')
