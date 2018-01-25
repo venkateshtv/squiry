@@ -78,7 +78,7 @@ class PayU():
             msg += """Hi <b>{}</b> <br/>""".format(firstname)
             msg += """ We have received an invalid trasaction with id {} <br/> Please mail to info@squiry.in for any questions. <br/> Thank you, <br/> Squiry team""".format(txnid)
             msg += """ </body></html> """
-            send_mail(email,bcc,"Payment failure from Squiry", msg)
+            send_mail(email,bcc,"Payment failure from Squiry", msg,False)
             return {"validtransaction":'false',"message":'Invalid Transaction. Please try again'}            
         else:
             barcode = self.create_barcode(txnid)
@@ -95,7 +95,7 @@ class PayU():
             message += """ Have a nice time <br/> Please send your questions to info@squiry.in <br/>"""
             message += """ Thank you, <br/> Squiry Team"""
             message += """ </body></html> """
-            message += send_mail(email,bcc,"Payment success from Squiry", message)
+            message += send_mail(email,bcc,"Payment success from Squiry", message,False)
             return {"validtransaction":'true',"message":message}
        
     def failed_transaction(self,request_params):
