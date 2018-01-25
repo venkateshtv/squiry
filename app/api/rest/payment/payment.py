@@ -32,7 +32,7 @@ class PayU():
         hash_object = hashlib.sha256(b'randint(0,20)')
         #txnid= uuid.uuid4().int#params.get('phone')+datetime.datetime.now().strftime("%Y%m%d%H%M")#hash_object.hexdigest()[0:20]
         params['key']= key        
-        params['txnid'] = self.create_transaction(params).get('txnid')
+        params['txnid'] = self.create_transaction(params).get('txnid') + '345676'
         print("TXNID", params['txnid'])
         hashSequence = "key|txnid|amount|productinfo|firstname|email|udf1|udf2|udf3|udf4|udf5|udf6|udf7|udf8|udf9|udf10"
         hash_string=''
