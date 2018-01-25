@@ -128,7 +128,7 @@ class PayU():
         return barcode_string
 
     def update_barcode(self,id,barcode):
-        query = """ UPDATE transactions set barcode= {} where id = {}""".format(barcode,id)
+        query = """ UPDATE transactions set barcode= {} where id = {} RETURNING id""".format(barcode,id)
         return insertupdate(query)
 
 gateway = "payu"
