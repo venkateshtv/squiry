@@ -115,7 +115,7 @@ class PayU():
         barcode_string = str(txnid)        
         if len(barcode_string) < 13:
             num_to_generate = 13-len(barcode_string)
-            ran_num = random_with_N_digits(num_to_generate)
+            ran_num = self.random_with_N_digits(num_to_generate)
             barcode_string += str(ran_num)
         
         print("Barcode string",barcode_string)
