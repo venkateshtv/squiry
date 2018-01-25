@@ -7,7 +7,7 @@ from email.mime.text import MIMEText
 def send_mail(recipient,bcc,subject,body,isPlain):
 
     try:        
-        
+        print('entering mail')
         # Create message container - the correct MIME type is multipart/alternative.
         msg = MIMEMultipart('alternative')
         msg['Subject'] = subject
@@ -30,7 +30,7 @@ def send_mail(recipient,bcc,subject,body,isPlain):
         # Attach parts into message container.
         # According to RFC 2046, the last part of a multipart message, in this case
         # the HTML message, is best and preferred.
-        
+        print('attempting to connect mail server')
         # Send the message via local SMTP server.
         server = smtplib.SMTP('mail.squiry.in',25)
         server.ehlo()
@@ -38,7 +38,7 @@ def send_mail(recipient,bcc,subject,body,isPlain):
         server.login('donotreply@squiry.in','Squiry123')
         # sendmail function takes 3 arguments: sender's address, recipient's address
         # and message to send - here it is sent as one string.
-        
+        print('sending mail ....')
         server.sendmail(recipient, toAddr, msg.as_string())
         server.quit()
         return True
