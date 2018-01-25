@@ -11,12 +11,13 @@ def send_mail(recipient,bcc,subject,body):
     sg = sendgrid.SendGridAPIClient(apikey=os.environ.get('SENDGRID_API_KEY'))
     from_email = Email("donotreply@squiry.in")
     to_email = Email(recipient)
-    content= Content("text/plain",body)
+    content= Content("text/html",body)
     mail = Mail(from_email,subject,to_email,content)
     response = sg.client.mail.send.post(request_body=mail.get())
     print(response.status_code)
     print(response.body)
     print(response.headers)
+    return True
 
 def send_mail_smtp(recipient,bcc,subject,body,isPlain):
 

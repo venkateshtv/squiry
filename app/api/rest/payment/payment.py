@@ -95,7 +95,7 @@ class PayU():
             message += """ Have a nice time <br/> Please send your questions to info@squiry.in <br/>"""
             message += """ Thank you, <br/> Squiry Team"""
             message += """ </body></html> """
-            message += send_mail(email,bcc,"Payment success from Squiry", message)
+            send_mail(email,bcc,"Payment success from Squiry", message)
             return {"validtransaction":'true',"message":message}
        
     def failed_transaction(self,request_params):
