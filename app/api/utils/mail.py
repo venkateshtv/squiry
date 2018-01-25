@@ -13,19 +13,19 @@ def send_mail(recipient,bcc,subject,body,isPlain):
         msg['Subject'] = subject
         msg['From'] = 'donotreply@squiry.in'
         msg['To'] = recipient
-        toAddr =[recipient,bcc]
+        toAddr = recipient #[recipient,bcc]
                   
-        if bcc:
-            msg['BCC'] = ",".join(i for i in bcc)
+        #if bcc:
+        #    msg['BCC'] = ",".join(i for i in bcc)
             #toAddr.append(bcc)
         
         # Record the MIME types of both parts - text/plain and text/html.
-        if isPlain:
-            part1 = MIMEText(body, 'plain')
-            msg.attach(part1)
-        else:
-            part2 = MIMEText(body, 'html')
-            msg.attach(part2)
+        
+        part1 = MIMEText(body, 'plain')
+        msg.attach(part1)
+    
+        part2 = MIMEText(body, 'html')
+        msg.attach(part2)
 
         # Attach parts into message container.
         # According to RFC 2046, the last part of a multipart message, in this case
