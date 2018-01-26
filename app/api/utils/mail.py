@@ -19,7 +19,7 @@ def send_mail(recipient,bcc,subject,body,params):
         mail.personalizations[0].add_substitution(Substitution("-eventtime-", params['eventtime']))
         mail.personalizations[0].add_substitution(Substitution("-eventaddress-", params['eventaddress']))
         mail.personalizations[0].add_substitution(Substitution("-amount-", params['amount']))
-        mail.personalizations[0].add_substitution(Substitution("-firstname-", params['firstame']))
+        mail.personalizations[0].add_substitution(Substitution("-firstname-", params['firstname']))
         mail.template_id= "ce05523a-5a62-4c17-8197-5cb702387214"
     response = sg.client.mail.send.post(request_body=mail.get())
     print(response.status_code)
