@@ -71,7 +71,7 @@ class PayU():
             retHashSeq = salt+'|'+status+'||||||'+ udf5 +'|'+ udf4 +'|'+ udf3 +'|'+ udf2 +'|'+ udf1 +'|'+email+'|'+firstname+'|'+productinfo+'|'+amount+'|'+txnid+'|'+key
         hashh=hashlib.sha512(retHashSeq.encode('utf-8')).hexdigest().lower()
         #updatedb
-        bcc = "prakashkumar_d@outlook.com"
+        bcc = ["prakashkumar_d@outlook.com","venkateshtv@outlook.com","akkanath@akkanatheventzone.com"]
         if(hashh !=posted_hash):
             print ("Invalid Transaction. Please try again")
             msg = """<html> <head></head> <body> """
