@@ -89,7 +89,7 @@ class PayU():
             # message += """We have received a payment of Rs. <b>{}</b>""".format(amount)
             # message += """Your Transaction ID for this transaction is {} <br/>""".format(txnid)            
             # message += """ Here are the event details: <br/> """
-            message += """ <img src='https://squiryapp.herokuapp.com/dist/barcodes/{}'></img> """.format(barcode+'.png')
+            message = """ <img src='https://squiryapp.herokuapp.com/dist/barcodes/{}'></img> """.format(barcode+'.png')
             # message += """ <i>Date & Time: {}</i><br/>""".format(udf3)
             # message += """ <i>Address {}</i><br/><br/>""".format(udf2)
             # message += """ Have a nice time <br/> Please send your questions to info@squiry.in <br/>"""
