@@ -85,9 +85,10 @@ class PayU():
             self.update_barcode(txnid,barcode)
             # message = """<html> <head></head> <body> """
             # message += """ Hi <b>{}</b><br/>""".format(firstname)
-            # message += """ Thank you for registering to our event <b>{}</b> <br/>""".format(udf1)
-            # message += """We have received a payment of Rs. <b>{}</b>""".format(amount)
-            # message += """Your Transaction ID for this transaction is {} <br/>""".format(txnid)            
+            display_message = """ Thank you for registering to our event {}\n""".format(udf1)
+            display_message += """We have received a payment of Rs. {} \n""".format(amount)
+            display_message += """Your Transaction ID for this transaction is {} \n""".format(txnid)            
+            display_message += """Please check your email for more information"""
             # message += """ Here are the event details: <br/> """
             message = """ <img src='https://squiryapp.herokuapp.com/dist/barcodes/{}'></img> """.format(barcode+'.png')
             # message += """ <i>Date & Time: {}</i><br/>""".format(udf3)
@@ -103,7 +104,7 @@ class PayU():
             params['amount']=amount
             params['firstname']=firstname
             send_mail(email,bcc,"Payment success from Squiry", message,params)
-            return {"validtransaction":'true',"message":message}
+            return {"validtransaction":'true',"message":display_message}
        
     def failed_transaction(self,request_params):
         #update db
