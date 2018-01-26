@@ -43,6 +43,7 @@
                 }                
             }
         });        
+        $urlRouterProvider.otherwise('/eventlanding/Its%20so%20Sunny%20%7C%20Sunny%20&%20Andrea%20Live-in%20Concert/23');
     }
     eventsConfig.$inject = ['$stateProvider', '$urlRouterProvider', '$urlMatcherFactoryProvider'];
     angular.module('squiryapp.events').config(eventsConfig);

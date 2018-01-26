@@ -27,16 +27,91 @@
 </head>
 
 <body id="squiryapp" ng-app="squiryapp">
-
-<!-- Main Wrapper -->
-<div id="main-wrapper" style="padding-top:20px">
-    <!-- Fubscribe Section End -->
-    <div id="loaderDiv" loader style="display:none">
-        <img src="dist/img/spinner.gif" class="ajax-loader"/>
-    </div>   
-    <div ui-view="pages"></div>    
-</div>
-
+    
+    <!-- Main Wrapper -->
+    <div id="main-wrapper">
+            
+            <!-- Header Section Start -->
+            <div class="header-section header-sticky section">
+                <div class="container-fluid">
+                    <div class="row">
+                       
+                        <!-- Header Logo -->
+                        <div class="header-logo col-lg-3 col-md-6 col-6">
+                            
+                            <a href="/#!/home" class="logo">
+                                <img src="dist/img/logo.png" alt="logo">
+                            </a>
+                            
+                        </div>
+                        
+                        <!-- Header Buttons -->
+                        <div class="header-button col-lg-3 col-md-6 col-6">
+                           
+                            <!-- Header Buttons Wrapper -->
+                            <div class="header-button-wrapper">
+                                
+                                <a href="#" class="btn btn-hover-red d-none d-md-inline-flex"><i class="fa fa-map-marker"> Chennai</i> </a>                               
+                                
+                                <!-- <a ng-if="enabled" href="cart.html" class="header-btn-cart dark hover-blue"><i class="pe-7s-cart"></i><span>00</span></a>                             -->
+        
+                            </div>
+                            
+                        </div>
+                        
+                        <!-- Header Menu -->
+                        <div class="main-menu col-lg-6 col-12">                            
+                            <nav id="menu">
+                                <ul>
+                                    <li class="active"><a href="https://www.squiry.in">Home</a>                                    
+                                    </li>
+                                    <li><a href="https://www.squiry.in/eventschennai">Events</a>
+                                   
+                                    </li>
+                                    <li><a href="https://www.squiry.in/adventure">Adventure</a>
+                                   
+                                    </li>
+                                    <li><a href="https://www.squiry.in/about">About</a></li>
+                                   
+                                </ul>
+                            </nav>
+                            
+                            <div class="mobile-menu"></div>
+                            
+                        </div>
+                        
+                    </div>
+                </div>
+            </div><!-- Header Section End -->
+    
+        <!-- Fubscribe Section End -->
+        <div id="loaderDiv" loader style="display:none">
+            <img src="dist/img/spinner.gif" class="ajax-loader"/>
+        </div>
+        
+        <div ui-view="pages"></div>
+    
+        
+        
+        <!-- Footer Bottom Section Start -->
+        <div class="footer-bottom section bg-black">
+            <div class="container">
+                <div class="row">
+                    
+                    <!-- Copyright Text -->
+                    <div class="copyright text-center col-12">
+                        
+                        <p>Copyright &copy; 2018 <a href="#">Squiry</a> All right resurved</p>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+        <!-- Footer Bottom Section End -->
+        
+    </div>
+    
 
 <!-- JS
 ============================================ -->

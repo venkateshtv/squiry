@@ -8,7 +8,7 @@
                 }
             }
         });
-        $urlRouterProvider.otherwise('/home');
+        //$urlRouterProvider.otherwise('/home');
     }
     homeConfig.$inject = ['$stateProvider','$urlRouterProvider'];
     angular.module('squiryapp.home').config(homeConfig);

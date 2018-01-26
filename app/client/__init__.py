@@ -19,7 +19,7 @@ client_bp = Blueprint('client_app', __name__,
                         )
 @client_bp.route('/')
 def index():
-    return render_template('index.html')
+    return render_template('external_index.html')
 
 @client_bp.route('/external')
 def external():
