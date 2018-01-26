@@ -50,8 +50,8 @@
             formDict['udf3']=params.udf3;
             formDict['udf4']=params.udf4;
             formDict['udf5']=params.udf5;
-            formDict['furl']='https://squiryapp.herokuapp.com/paymentfailure';
-            formDict['surl']='https://squiryapp.herokuapp.com/paymentsuccess';
+            formDict['furl']='http://www.squiry-akkanatheventzone.com/paymentfailure';
+            formDict['surl']='http://www.squiry-akkanatheventzone.com/paymentsuccess';
             formDict['service_provider']='payu_paisa'
             form = create_form_elements(form,formDict);
             document.body.appendChild(form);
