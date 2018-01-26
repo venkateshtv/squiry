@@ -78,24 +78,31 @@ class PayU():
             msg += """Hi <b>{}</b> <br/>""".format(firstname)
             msg += """ We have received an invalid trasaction with id {} <br/> Please mail to info@squiry.in for any questions. <br/> Thank you, <br/> Squiry team""".format(txnid)
             msg += """ </body></html> """
-            send_mail(email,bcc,"Payment failure from Squiry", msg)
+            send_mail(email,bcc,"Payment failure from Squiry", msg,None)
             return {"validtransaction":'false',"message":'Invalid Transaction. Please try again'}            
         else:
             barcode = self.create_barcode(txnid)
             self.update_barcode(txnid,barcode)
-            message = """<html> <head></head> <body> """
-            message += """ Hi <b>{}</b><br/>""".format(firstname)
-            message += """ Thank you for registering to our event <b>{}</b> <br/>""".format(udf1)
-            message += """We have received a payment of Rs. <b>{}</b>""".format(amount)
-            message += """Your Transaction ID for this transaction is {} <br/>""".format(txnid)            
-            message += """ Here are the event details: <br/> """
+            # message = """<html> <head></head> <body> """
+            # message += """ Hi <b>{}</b><br/>""".format(firstname)
+            # message += """ Thank you for registering to our event <b>{}</b> <br/>""".format(udf1)
+            # message += """We have received a payment of Rs. <b>{}</b>""".format(amount)
+            # message += """Your Transaction ID for this transaction is {} <br/>""".format(txnid)            
+            # message += """ Here are the event details: <br/> """
             message += """ <img src='https://squiryapp.herokuapp.com/dist/barcodes/{}'></img> """.format(barcode+'.png')
-            message += """ <i>Date & Time: {}</i><br/>""".format(udf3)
-            message += """ <i>Address {}</i><br/><br/>""".format(udf2)
-            message += """ Have a nice time <br/> Please send your questions to info@squiry.in <br/>"""
-            message += """ Thank you, <br/> Squiry Team"""
-            message += """ </body></html> """
-            send_mail(email,bcc,"Payment success from Squiry", message)
+            # message += """ <i>Date & Time: {}</i><br/>""".format(udf3)
+            # message += """ <i>Address {}</i><br/><br/>""".format(udf2)
+            # message += """ Have a nice time <br/> Please send your questions to info@squiry.in <br/>"""
+            # message += """ Thank you, <br/> Squiry Team"""
+            # message += """ </body></html> """
+            params = {}
+            params['transactionid']=txnid
+            params['eventname']=udf1
+            params['eventtime']=udf3
+            params['eventaddress']=udf2
+            params['amount']=amount
+            params['firstname']=firstname
+            send_mail(email,bcc,"Payment success from Squiry", message,params)
             return {"validtransaction":'true',"message":message}
        
     def failed_transaction(self,request_params):

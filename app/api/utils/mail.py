@@ -7,12 +7,20 @@ import sendgrid
 import os
 from sendgrid.helpers.mail import *
 
-def send_mail(recipient,bcc,subject,body):
+def send_mail(recipient,bcc,subject,body,params):
     sg = sendgrid.SendGridAPIClient(apikey=os.environ.get('SENDGRID_API_KEY'))
     from_email = Email("donotreply@squiry.in")
     to_email = Email(recipient)
     content= Content("text/html",body)
     mail = Mail(from_email,subject,to_email,content)
+    if(params != None):
+        mail.personalizations[0].add_substitution(Substitution("-transactionid-", params['transactionid']))
+        mail.personalizations[0].add_substitution(Substitution("-eventname-", params['eventname']))
+        mail.personalizations[0].add_substitution(Substitution("-eventtime-", params['eventtime']))
+        mail.personalizations[0].add_substitution(Substitution("-eventaddress-", params['eventaddress']))
+        mail.personalizations[0].add_substitution(Substitution("-amount-", params['amount']))
+        mail.personalizations[0].add_substitution(Substitution("-firstname-", params['firstame']))
+        mail.template_id= "ce05523a-5a62-4c17-8197-5cb702387214"
     response = sg.client.mail.send.post(request_body=mail.get())
     print(response.status_code)
     print(response.body)
