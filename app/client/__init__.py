@@ -43,4 +43,4 @@ def payment_success():
 def payment_failure():    
     payment_gateway = PaymentFactory().get_payment_gateway('payu')
     paymentfailure = payment_gateway.failed_transaction(request.form)
-    return render_template('payment.html',message=request.form["status"])
+    return render_template('payment.html',message="Payment failure. Please contact the administrator at info@squiry.in")

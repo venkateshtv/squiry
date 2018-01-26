@@ -25,10 +25,10 @@ class PayU():
         return insertupdate(query)
         
     def create_payment_request(self,params):
-        # key="XZYmyU9I"
-        # SALT = "zo7yEZu9UZ"
-        key="gtKFFx"
-        SALT = "eCwWELxi"
+        key="XZYmyU9I"
+        SALT = "zo7yEZu9UZ"
+        #key="gtKFFx"
+        #SALT = "eCwWELxi"
         PAYU_BASE_URL = "https://sandboxsecure.payu.in/_payment"
         hash_object = hashlib.sha256(b'randint(0,20)')
         #txnid= uuid.uuid4().int#params.get('phone')+datetime.datetime.now().strftime("%Y%m%d%H%M")#hash_object.hexdigest()[0:20]
@@ -63,7 +63,7 @@ class PayU():
         udf3 = request_params["udf3"]
         udf4 = request_params["udf4"]
         udf5 = request_params["udf5"]
-        salt="eCwWELxi"
+        salt="zo7yEZu9UZ"        
         try:
             additionalCharges=request_params["additionalCharges"]
             retHashSeq=additionalCharges+'|'+salt+'|'+status+'|||||||||||'+email+'|'+firstname+'|'+productinfo+'|'+amount+'|'+txnid+'|'+key

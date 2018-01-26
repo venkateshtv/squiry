@@ -30,8 +30,8 @@
         function payment_order(params, paymentRequest){
             //Create PaymentFormdata
             //Post form
-            //var payU = "https://secure.payu.in/_payment";
-            var payU = "https://test.payu.in/_payment";
+            var payU = "https://secure.payu.in/_payment";
+            //var payU = "https://test.payu.in/_payment";
             var form = document.createElement("form");
             form.setAttribute("method", "POST");
             form.setAttribute("action", payU);
@@ -52,7 +52,7 @@
             formDict['udf5']=params.udf5;
             formDict['furl']='https://squiryapp.herokuapp.com/paymentfailure';
             formDict['surl']='https://squiryapp.herokuapp.com/paymentsuccess';
-            //formDict['service_provider']='payu_paisa'
+            formDict['service_provider']='payu_paisa'
             form = create_form_elements(form,formDict);
             document.body.appendChild(form);
             form.submit();
