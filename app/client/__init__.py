@@ -42,7 +42,6 @@ def payment_success():
             return render_template('payment.html',message=payment_validated['message'])
     except Exception as e:
         return render_template('payment.html',message=str(e))
-/
 
 @client_bp.route('/paymentfailure',methods=['GET','POST'])
 def payment_failure():    
