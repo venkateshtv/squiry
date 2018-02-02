@@ -25,6 +25,11 @@ def index():
 def external():
     return render_template('external_index.html')
 
+@client_bp.route('/juspay',methods=['GET','POST'])
+def juspay():
+    message = str(request.form)
+    return render_template('juspay.html',message=message)
+
 @client_bp.route('/paymentsuccess',methods=['GET','POST'])
 def payment_success():
     try:
@@ -37,7 +42,7 @@ def payment_success():
             return render_template('payment.html',message=payment_validated['message'])
     except Exception as e:
         return render_template('payment.html',message=str(e))
-
+/
 
 @client_bp.route('/paymentfailure',methods=['GET','POST'])
 def payment_failure():    
