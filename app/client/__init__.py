@@ -27,7 +27,10 @@ def external():
 
 @client_bp.route('/juspay',methods=['GET','POST'])
 def juspay():
-    message = str(request.form)
+    try:
+        message = str(request.form)
+    except Exception as e:
+        message = str(e)
     return render_template('juspay.html',message=message)
 
 @client_bp.route('/paymentsuccess',methods=['GET','POST'])
