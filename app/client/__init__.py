@@ -27,8 +27,12 @@ def external():
 
 @client_bp.route('/juspay',methods=['GET','POST'])
 def juspay():
+    message = ""
     try:
-        message = str(request.form)
+        if request.method == "POST":
+            message = str(request.form)
+        elif request.method == "GET":
+            message = request.args.get('status',"no status found") + request.args.get('signature','no signature found')
     except Exception as e:
         message = str(e)
     return render_template('juspay.html',message=message)
