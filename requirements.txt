@@ -14,7 +14,7 @@ Jinja2==2.9.6
 juspay==1.1.2
 mailer==0.8.1
 MarkupSafe==1.0
-Pillow==5.0.0
+Pillow==8.1.1
 portend==2.2
 psycopg2==2.7.3.2
 pyBarcode==0.7
